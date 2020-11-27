@@ -74,7 +74,7 @@ void Search(Room*& RoomList, Customer*& CustomerList)
 		SearchByType(RoomList);
 		break;
 	case '2':
-		//searchroom2();
+		SearchByPrice(RoomList);
 		break;
 	case '3':
 		//searchcustomer();

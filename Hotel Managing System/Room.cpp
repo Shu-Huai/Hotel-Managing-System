@@ -1,7 +1,6 @@
 #include "Room.h"
 void InsertRoom(Room*& RoomList)
 {
-	Room* TempRoom = new Room;
 	cout << endl
 		<< endl
 		<< "                客房管理系统" << endl
@@ -10,6 +9,7 @@ void InsertRoom(Room*& RoomList)
 		<< endl
 		<< endl
 		<< "请输入需录入的房间编号：";
+	Room* TempRoom = new Room;
 	cin >> TempRoom->Number;
 	Room* p = RoomList;
 	while (p != NULL)
@@ -71,7 +71,6 @@ Continue:
 }
 void SearchByType(Room*& RoomList)
 {
-	Room* p = RoomList;
 	cout << endl
 		<< endl
 		<< "                客房管理系统" << endl
@@ -82,6 +81,7 @@ void SearchByType(Room*& RoomList)
 	string input;
 	cin >> input;
 	bool judge = 0;
+	Room* p = RoomList;
 	while (p != NULL)
 	{
 		if (input == p->Type)
@@ -108,6 +108,40 @@ void SearchByType(Room*& RoomList)
 		cout << "\n\n                客房管理系统             \n\n";
 		cout << "      ----------------------------------   \n\n";
 		cout << "		 查无此类房间房" << endl;
+	}
+	system("pause");
+	system("cls");
+}
+void SearchByPrice(Room*& RoomList)
+{
+	cout << endl
+		<< endl
+		<< "                客房管理系统" << endl
+		<< endl
+		<< "      ----------------------------------" << endl
+		<< endl
+		<< endl << "请输入需查找的房间上下价格区间(下限 上限)：";
+	int min, max;
+	cin >> min >> max;
+	Room* p = RoomList;
+	while (p != NULL)
+	{
+		if (p->Price >= min and p->Price <= max)
+		{
+			cout << endl
+				<< "房间编号" << p->Number << "    "
+				<< "房间类型" << p->Type << "    "
+				<< "房间单价" << p->Price << "    ";
+			if (p->State == 0)
+			{
+				cout << "该房间无人。" << endl;
+			}
+			else
+			{
+				cout << "该房间已有客人入住。" << endl;
+			}
+		}
+		p = p->next;
 	}
 	system("pause");
 	system("cls");

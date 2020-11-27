@@ -11,3 +11,4 @@ struct Room
 };
 void InsertRoom(Room*& RoomList);
 void SearchByType(Room*& RoomList);
+void SearchByPrice(Room*& RoomList);
