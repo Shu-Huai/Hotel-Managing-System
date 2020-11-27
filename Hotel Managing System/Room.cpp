@@ -77,7 +77,7 @@ void SearchByType(Room*& RoomList)
 		<< endl
 		<< "      ----------------------------------" << endl
 		<< endl
-		<< endl << "    请输入需查找的房间类型：";
+		<< "    请输入需查找的房间类型：";
 	string input;
 	cin >> input;
 	bool judge = 0;
@@ -120,7 +120,7 @@ void SearchByPrice(Room*& RoomList)
 		<< endl
 		<< "      ----------------------------------" << endl
 		<< endl
-		<< endl << "请输入需查找的房间上下价格区间(下限 上限)：";
+		<< "请输入需查找的房间上下价格区间(下限 上限)：";
 	int min, max;
 	cin >> min >> max;
 	Room* p = RoomList;

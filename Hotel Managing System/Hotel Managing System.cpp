@@ -30,6 +30,7 @@ void Insert(Room*& RoomList, Customer*& CustomerList)
 		InsertCustomer(RoomList, CustomerList);
 		break;
 	case '3':
+		return;
 		break;
 	default:
 		cout << endl
@@ -45,6 +46,7 @@ void Insert(Room*& RoomList, Customer*& CustomerList)
 		Insert(RoomList, CustomerList);
 		return;
 	}
+	Insert(RoomList, CustomerList);
 }
 void Search(Room*& RoomList, Customer*& CustomerList)
 {
@@ -77,12 +79,13 @@ void Search(Room*& RoomList, Customer*& CustomerList)
 		SearchByPrice(RoomList);
 		break;
 	case '3':
-		//searchcustomer();
+		SearchCustomer(CustomerList);
 		break;
 	case '4':
 		//searchall();
 		break;
 	case '5':
+		return;
 		break;
 	default:
 		cout << endl
@@ -95,6 +98,7 @@ void Search(Room*& RoomList, Customer*& CustomerList)
 		system("pause");
 		system("cls");
 	}
+	Search(RoomList, CustomerList);
 }
 int main()
 {

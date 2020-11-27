@@ -134,7 +134,7 @@ ShowRoom:
 			<< endl
 			<< "      ----------------------------------" << endl
 			<< endl
-			<< "                已更新客房与客人信息。" << endl;
+			<< "            已更新客房与客人信息。" << endl;
 		system("pause");
 		system("cls");
 		TempCustomer->next = CustomerList;
@@ -148,8 +148,55 @@ ShowRoom:
 			<< endl
 			<< "      ----------------------------------" << endl
 			<< endl
-			<< "             房间编号输入错误，请重新输入。" << endl
+			<< "        房间编号输入错误，请重新输入。" << endl
 			<< endl;
 		goto ShowRoom;
 	}
+}
+void SearchCustomer(Customer*& CustomerList)
+{
+	cout << endl
+		<< endl
+		<< "                客房管理系统" << endl
+		<< endl
+		<< "      ----------------------------------" << endl
+		<< endl
+		<< "      请输入需查找的客人姓名或身份证：";
+	string input;
+	cin >> input;
+	bool judge = 0;
+	Customer* p = CustomerList;
+	while (p != NULL)
+	{
+		if (input == p->Name or input == p->ID)
+		{
+			cout << endl
+				<< "客人姓名" << p->Name << endl
+				<< endl
+				<< "客人身份证号" << p->ID << endl
+				<< endl
+				<< "客人入住时间" << p->InDate << endl
+				<< endl
+				<< "客人退房时间" << p->OutDate << endl
+				<< endl
+				<< "客人入住房号" << p->InRoomNumber << endl
+				<< endl
+				<< "客人消费金额" << p->Cost << endl
+				<< endl;
+			judge = 1;
+		}
+		p = p->next;
+	}
+	if (judge == 0)
+	{
+		cout << endl
+			<< endl
+			<< "                客房管理系统" << endl
+			<< endl
+			<< "      ----------------------------------" << endl
+			<< endl
+			<< "		          查无此人。" << endl;
+	}
+	system("pause");
+	system("cls");
 }
