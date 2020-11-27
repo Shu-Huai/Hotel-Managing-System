@@ -32,7 +32,8 @@ void InsertRoom(Room*& RoomList)
 		<< endl
 		<< "      ----------------------------------" << endl
 		<< endl
-		<< "请输入需录入的房间编号：";
+		<< endl
+		<< "           请输入需录入的房间编号：";
 	cin >> TempRoom->Number;
 	Room* p = RoomList;
 	while (p != NULL)
@@ -82,7 +83,7 @@ Continue:
 		<< "      ----------------------------------" << endl
 		<< endl
 		<< endl
-		<< "是否需要继续录入房间？（Y/N）" << endl;
+		<< "         是否需要继续录入房间？（Y/N）" << endl;
 	char input;
 	input = getchar();
 	system("cls");
@@ -125,7 +126,7 @@ void InsertCustomer(Room*& RoomList, Customer*& CustomerList)
 	Customer* TempCustomer = new Customer;
 	cout << "\n\n                客房管理系统             \n\n";
 	cout << "      ----------------------------------   \n\n";
-	cout << "  请输入需入住的客人的身份信息（身份证号）：";
+	cout << "       请输入需入住的客人的身份信息（身份证号）：";
 	cin >> TempCustomer->ID;
 	Customer* p = CustomerList;
 	while (p != NULL)
@@ -135,7 +136,7 @@ void InsertCustomer(Room*& RoomList, Customer*& CustomerList)
 			system("cls");
 			cout << "\n\n                客房管理系统             \n\n";
 			cout << "      ----------------------------------   \n\n";
-			cout << "               该客人已存在，如需修改请输入Y,回到主菜单请输入任意字母：";
+			cout << "该客人已存在，如需修改请输入Y,回到主菜单请输入任意字母：";
 			char input;
 			input = getchar();
 			if (input == 'Y' or input == 'y')
@@ -211,7 +212,7 @@ ShowRoom:
 	{
 		cout << "\n\n                客房管理系统             \n\n";
 		cout << "      ----------------------------------   \n\n";
-		cout << "                 已更新客房与客人信息\n";
+		cout << "                已更新客房与客人信息\n";
 		system("pause");
 		system("cls");
 		TempCustomer->next = CustomerList;
@@ -221,7 +222,7 @@ ShowRoom:
 	{
 		cout << "\n\n                客房管理系统             \n\n";
 		cout << "      ----------------------------------   \n\n";
-		cout << "                 房间编号输入错误，请重新输入\n";
+		cout << "             房间编号输入错误，请重新输入\n";
 		cout << endl;
 		goto ShowRoom;
 	}
@@ -265,7 +266,7 @@ void Insert(Room*& RoomList, Customer*& CustomerList)
 			<< "      ----------------------------------" << endl
 			<< endl
 			<< endl
-			<< "                  非法字符" << endl;
+			<< "                  非法字符。" << endl;
 		system("pause");
 		system("cls");
 		Insert(RoomList, CustomerList);
