@@ -150,7 +150,7 @@ int main()
 			Search(RoomList, CustomerList);
 			break;
 		case '3':
-			//deletecustomer();
+			CheckOut(RoomList, CustomerList);
 			break;
 		case '4':
 			//changedepend();

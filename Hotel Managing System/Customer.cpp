@@ -228,3 +228,83 @@ void ShowCustomer(Customer*& CustomerList)
 	system("pause");
 	system("cls");
 }
+void CheckOut(Room*& RoomList, Customer*& CustomerList)
+{
+	cout << endl
+		<< endl
+		<< "                客房管理系统" << endl
+		<< endl
+		<< "      ----------------------------------" << endl
+		<< endl
+		<< "       请输入退房客人身份证号或姓名：";
+	string input;
+	cin >> input;
+	int pay = 0;
+	bool judge = 0;
+	Room* p = RoomList;
+	Customer* q = CustomerList;
+	Customer* qfront = CustomerList;
+	while (q != NULL and input != q->Name and input != q->ID)
+	{
+		qfront = q;
+		q = q->next;
+	}
+	q = CustomerList;
+	while (q != NULL)
+	{
+		if (input == q->Name or input == q->ID)
+		{
+			while (p != NULL)
+			{
+				if (p->Number == q->InRoomNumber)
+				{
+					p->State = 0;
+					break;
+				}
+				p = p->next;
+			}
+			pay = q->Cost;
+			judge = 1;
+			break;
+		}
+		q = q->next;
+	}
+	if (q == NULL)
+	{
+	}
+	else 
+	{
+		if (q == CustomerList)
+		{
+			CustomerList = CustomerList->next;
+		}
+		else
+		{
+			qfront->next = q->next;
+		}
+	}
+	delete q;
+	system("cls");
+	if (judge == 1)
+	{
+		cout << endl
+			<< endl
+			<< "                客房管理系统" << endl
+			<< endl
+			<< "      ----------------------------------" << endl
+			<< endl
+			<< "       客人退房成功，需支付: " << pay << endl;
+	}
+	else
+	{
+		cout << endl
+			<< endl
+			<< "                客房管理系统" << endl
+			<< endl
+			<< "      ----------------------------------" << endl
+			<< endl
+			<< "                该客人不存在。" << endl;
+	}
+	system("pause");
+	system("cls");
+}
