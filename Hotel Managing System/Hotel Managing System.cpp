@@ -1,6 +1,4 @@
 ﻿#include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
 #include <fstream>
 #include "Room.h"
 #include "File.h"
@@ -56,18 +54,18 @@ int main()
 	system("color F0");
 	Room* RoomList = NULL;
 	Customer* CustomerList = NULL;
-	ifstream filein("Customer.txt");
-	if (!filein.is_open())
-	{
-		ofstream fileout("Customer.txt", ios::trunc);
-		fileout.close();
-	}
-	ifstream filein2("Room.txt");
-	if (!filein2.is_open())
+	ifstream RoomFile("Room.txt");
+	ifstream CustomerFile("Customer.txt");
+	if (!RoomFile.is_open())
 	{
 		ofstream fileout2("Room.txt", ios::trunc);
-		fileout2.close();
 	}
+	if (!CustomerFile.is_open())
+	{
+		ofstream fileout("Customer.txt", ios::trunc);
+	}
+	RoomFile.close();
+	CustomerFile.close();
 	system("cls");
 	Read(RoomList, CustomerList);
 	while (1)

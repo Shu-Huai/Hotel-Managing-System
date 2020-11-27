@@ -1,6 +1,33 @@
 #include "File.h"
 #include <fstream>
 using namespace std;
+void Read(Room*& RoomList, Customer*& CustomerList) //读取文件
+{
+	ifstream RoomFile("Room.txt");
+	while (!RoomFile.eof())
+	{
+		Room* p = new Room;
+		RoomFile >> p->Number >> p->Type >> p->Price >> p->State;
+		if (p->Number != "" and p->Type != "" and p->Price != 0)
+		{
+			p->next = RoomList;
+			RoomList = p;
+		}
+	}
+	RoomFile.close();
+	ifstream CustomerFile("Customer.txt");
+	while (!CustomerFile.eof())
+	{
+		Customer* p = new Customer;
+		CustomerFile >> p->ID >> p->Name >> p->InDate >> p->OutDate >> p->InRoomNumber >> p->Cost;
+		if (p->ID != "" and p->Name != "" and p->InDate != 0 and p->OutDate != 0)
+		{
+			p->next = CustomerList;
+			CustomerList = p;
+		}
+	}
+	CustomerFile.close();
+}
 void Save(Room*& RoomList, Customer*& CustomerList)
 {
 	Room* p = RoomList;
@@ -28,35 +55,6 @@ void Save(Room*& RoomList, Customer*& CustomerList)
 		CustomerFile << q->InDate << " ";
 		CustomerFile << q->OutDate << " " << q->InRoomNumber << " " << q->Cost << endl;
 		q = q->next;
-	}
-	CustomerFile.close();
-}
-void Read(Room*& RoomList, Customer*& CustomerList) //读取文件
-{
-	ifstream RoomFile("Room.txt");
-	while (!RoomFile.eof())
-	{
-		Room* p = new Room;
-		RoomFile >> p->Number >> p->Type >> p->Price >> p->State;
-		if (p->Number != "" and p->Type != "" and p->Price != 0)
-		{
-			p->next = RoomList;
-			RoomList = p;
-		}
-		delete p;
-	}
-	RoomFile.close();
-	ifstream CustomerFile("Customer.txt");
-	while (!CustomerFile.eof())
-	{
-		Customer* p = new Customer;
-		CustomerFile >> p->ID >> p->Name >> p->InDate >> p->OutDate >> p->InRoomNumber >> p->Cost;
-		if (p->ID != "" and p->Name != "" and p->InDate != 0 and p->OutDate != 0)
-		{
-			p->next = CustomerList;
-			CustomerList = p;
-		}
-		delete p;
 	}
 	CustomerFile.close();
 }

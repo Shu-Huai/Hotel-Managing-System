@@ -1,4 +1,5 @@
 #include "Customer.h"
+using namespace std;
 int GetDays(int year, int month, int day)
 {
 	int m[13] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
@@ -29,9 +30,13 @@ int GetInDays(int year1, int month1, int day1, int year2, int month2, int day2)
 void InsertCustomer(Room*& RoomList, Customer*& CustomerList)
 {
 	Customer* TempCustomer = new Customer;
-	cout << "\n\n                客房管理系统             \n\n";
-	cout << "      ----------------------------------   \n\n";
-	cout << "请输入需入住的客人的身份信息（身份证号）：";
+	cout << endl
+		<< endl
+		<< "                客房管理系统" << endl
+		<< endl
+		<< "      ----------------------------------" << endl
+		<< endl
+		<< "请输入需入住的客人的身份信息（身份证号）：";
 	cin >> TempCustomer->ID;
 	Customer* p = CustomerList;
 	while (p != NULL)
@@ -39,9 +44,13 @@ void InsertCustomer(Room*& RoomList, Customer*& CustomerList)
 		if (p->ID == TempCustomer->ID)
 		{
 			system("cls");
-			cout << "\n\n                客房管理系统             \n\n";
-			cout << "      ----------------------------------   \n\n";
-			cout << "该客人已存在，如需修改请输入Y,回到主菜单请输入任意字母：";
+			cout << endl
+				<< endl
+				<< "                客房管理系统" << endl
+				<< endl
+				<< "      ----------------------------------" << endl
+				<< endl
+				<< "该客人已存在，如需修改请输入Y,回到主菜单请输入任意字母：";
 			char input;
 			input = getchar();
 			if (input == 'Y' or input == 'y')
@@ -68,8 +77,12 @@ void InsertCustomer(Room*& RoomList, Customer*& CustomerList)
 	int i = 0, judge = 0;
 	Room* q = RoomList;
 	system("cls");
-	cout << "\n\n                客房管理系统             \n\n";
-	cout << "      ----------------------------------   \n\n";
+	cout << endl
+		<< endl
+		<< "                客房管理系统" << endl
+		<< endl
+		<< "      ----------------------------------" << endl
+		<< endl;
 	if (q == NULL)
 	{
 		cout << "              请先录入客房信息。";
@@ -91,12 +104,12 @@ ShowRoom:
 	}
 	if (q == NULL and i == 0)
 	{
-		cout << "   暂无空房间";
+		cout << "   暂无空房间。";
 		system("pause");
 		return;
 	}
-	cout << endl;
-	cout << "  请选择房间（输入房间号）：" << endl;
+	cout << endl
+		<< "  请选择房间（输入房间号）：" << endl;
 	string number;
 	cin >> number;
 	q = RoomList;
@@ -115,9 +128,13 @@ ShowRoom:
 	system("cls");
 	if (judge == 1)
 	{
-		cout << "\n\n                客房管理系统             \n\n";
-		cout << "      ----------------------------------   \n\n";
-		cout << "                已更新客房与客人信息。\n";
+		cout << endl
+			<< endl
+			<< "                客房管理系统" << endl
+			<< endl
+			<< "      ----------------------------------" << endl
+			<< endl
+			<< "                已更新客房与客人信息。" << endl;
 		system("pause");
 		system("cls");
 		TempCustomer->next = CustomerList;
@@ -125,10 +142,14 @@ ShowRoom:
 	}
 	else
 	{
-		cout << "\n\n                客房管理系统             \n\n";
-		cout << "      ----------------------------------   \n\n";
-		cout << "             房间编号输入错误，请重新输入。\n";
-		cout << endl;
+		cout << endl
+			<< endl
+			<< "                客房管理系统" << endl
+			<< endl
+			<< "      ----------------------------------" << endl
+			<< endl
+			<< "             房间编号输入错误，请重新输入。" << endl
+			<< endl;
 		goto ShowRoom;
 	}
 }
