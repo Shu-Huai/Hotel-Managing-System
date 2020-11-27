@@ -16,3 +16,4 @@ int GetDays(int year, int month, int day);
 int GetInDays(int year1, int month1, int day1, int year2, int month2, int day2);
 void InsertCustomer(Room*& RoomList, Customer*& CustomerList);
 void SearchCustomer(Customer*& CustomerList);
+void ShowCustomer(Customer*& CustomerList);

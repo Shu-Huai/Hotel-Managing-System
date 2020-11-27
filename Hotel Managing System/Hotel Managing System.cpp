@@ -82,7 +82,7 @@ void Search(Room*& RoomList, Customer*& CustomerList)
 		SearchCustomer(CustomerList);
 		break;
 	case '4':
-		//searchall();
+		ShowCustomer(CustomerList);
 		break;
 	case '5':
 		return;

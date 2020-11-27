@@ -1,7 +1,7 @@
 #include "File.h"
 #include <fstream>
 using namespace std;
-void Read(Room*& RoomList, Customer*& CustomerList) //╤ах║нд╪Ч
+void Read(Room*& RoomList, Customer*& CustomerList)
 {
 	ifstream RoomFile("Room.txt");
 	while (!RoomFile.eof())

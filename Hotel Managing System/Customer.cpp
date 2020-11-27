@@ -90,7 +90,7 @@ void InsertCustomer(Room*& RoomList, Customer*& CustomerList)
 		return;
 	}
 ShowRoom:
-	while (q != NULL) //选择房间
+	while (q != NULL)
 	{
 		if (q->State != 1 and q->Price != 0)
 		{
@@ -113,7 +113,7 @@ ShowRoom:
 	string number;
 	cin >> number;
 	q = RoomList;
-	while (q != NULL) //更新房间与客人信息
+	while (q != NULL)
 	{
 		if (number == q->Number)
 		{
@@ -197,6 +197,34 @@ void SearchCustomer(Customer*& CustomerList)
 			<< endl
 			<< "		          查无此人。" << endl;
 	}
+	system("pause");
+	system("cls");
+}
+void ShowCustomer(Customer*& CustomerList)
+{
+	cout << endl
+		<< endl
+		<< "                客房管理系统" << endl
+		<< endl
+		<< "      ----------------------------------" << endl
+		<< endl;
+	bool judge = 0;
+	Customer* p = CustomerList;
+	while (p != NULL)
+	{
+		cout << "客人姓名" << p->Name << "    "
+			<< "客人身份证号" << p->ID << "   "
+			<< "客人入住时间" << p->InDate << "   "
+			<< "客人退房时间" << p->OutDate << "  "
+			<< "客人入住房号" << p->InRoomNumber << "  "
+			<< "客人消费金额" << p->Cost << endl
+			<< endl;
+		judge = 1;
+		p = p->next;
+	}
+	if (judge == 0)
+		cout << "             暂无客人信息。" << endl
+		<< endl;
 	system("pause");
 	system("cls");
 }
