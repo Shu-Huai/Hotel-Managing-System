@@ -139,7 +139,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Customer.cpp" />
+    <ClCompile Include="File.cpp" />
     <ClCompile Include="Hotel Managing System.cpp" />
+    <ClCompile Include="Room.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Customer.h" />
+    <ClInclude Include="File.h" />
+    <ClInclude Include="Room.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Customer.txt" />
+    <Text Include="Room.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
