@@ -21,21 +21,17 @@ void Insert(Room*& RoomList, Customer*& CustomerList)
 	char ChooseFunction;
 	cin >> ChooseFunction;
 	system("cls");
-	if (ChooseFunction >= '1' and ChooseFunction <= '3')
+	switch (ChooseFunction)
 	{
-		switch (ChooseFunction)
-		{
-		case '1':
-			InsertRoom(RoomList);
-			break;
-		case '2':
-			InsertCustomer(RoomList, CustomerList);
-			break;
-		case '3':;
-		}
-	}
-	else
-	{
+	case '1':
+		InsertRoom(RoomList);
+		break;
+	case '2':
+		InsertCustomer(RoomList, CustomerList);
+		break;
+	case '3':
+		break;
+	default:
 		cout << endl
 			<< endl
 			<< "                客房管理系统" << endl
@@ -47,6 +43,57 @@ void Insert(Room*& RoomList, Customer*& CustomerList)
 		system("pause");
 		system("cls");
 		Insert(RoomList, CustomerList);
+		return;
+	}
+}
+void Search(Room*& RoomList, Customer*& CustomerList)
+{
+	cout << endl
+		<< endl
+		<< "                客房管理系统" << endl
+		<< endl
+		<< "      ----------------------------------" << endl
+		<< endl
+		<< "               1.按类型查询客房信息" << endl
+		<< endl
+		<< "               2.按价格查询客房信息" << endl
+		<< endl
+		<< "               3.查询客人信息" << endl
+		<< endl
+		<< "               4.查询所有客人信息" << endl
+		<< endl
+		<< "               5.返回上层菜单" << endl
+		<< endl
+		<< "  请选择：";
+	char ChooseFunction;
+	cin >> ChooseFunction;
+	system("cls");
+	switch (ChooseFunction)
+	{
+	case '1':
+		SearchByType(RoomList);
+		break;
+	case '2':
+		//searchroom2();
+		break;
+	case '3':
+		//searchcustomer();
+		break;
+	case '4':
+		//searchall();
+		break;
+	case '5':
+		break;
+	default:
+		cout << endl
+			<< endl
+			<< "                客房管理系统" << endl
+			<< endl
+			<< "      ----------------------------------" << endl
+			<< endl
+			<< "                  非法字符。" << endl;
+		system("pause");
+		system("cls");
 	}
 }
 int main()
@@ -96,7 +143,7 @@ int main()
 			Insert(RoomList, CustomerList);
 			break;
 		case '2':
-			//searchdepend();
+			Search(RoomList, CustomerList);
 			break;
 		case '3':
 			//deletecustomer();
@@ -121,7 +168,6 @@ int main()
 				<< "                  非法字符。" << endl;
 			system("pause");
 			system("cls");
-			break;
 		}
 	}
 	return 0;

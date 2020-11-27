@@ -10,3 +10,4 @@ struct Room
 	Room* next = NULL;
 };
 void InsertRoom(Room*& RoomList);
+void SearchByType(Room*& RoomList);

@@ -69,3 +69,46 @@ Continue:
 	}
 	system("cls");
 }
+void SearchByType(Room*& RoomList)
+{
+	Room* p = RoomList;
+	cout << endl
+		<< endl
+		<< "                客房管理系统" << endl
+		<< endl
+		<< "      ----------------------------------" << endl
+		<< endl
+		<< endl << "    请输入需查找的房间类型：";
+	string input;
+	cin >> input;
+	bool judge = 0;
+	while (p != NULL)
+	{
+		if (input == p->Type)
+		{
+			cout << endl
+				<< "房间编号" << p->Number << "    "
+				<< "房间类型" << p->Type << "    "
+				<< "房间单价" << p->Price << "    ";
+			if (p->State == 0)
+			{
+				cout << "该房间无人。" << endl;
+			}
+			else
+			{
+				cout << "该房间已有客人入住。" << endl;
+			}
+			judge = 1;
+		}
+		p = p->next;
+	}
+	if (judge == 0)
+	{
+		system("cls");
+		cout << "\n\n                客房管理系统             \n\n";
+		cout << "      ----------------------------------   \n\n";
+		cout << "		 查无此类房间房" << endl;
+	}
+	system("pause");
+	system("cls");
+}
