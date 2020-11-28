@@ -146,3 +146,47 @@ void SearchByPrice(Room*& RoomList)
 	system("pause");
 	system("cls");
 }
+void ChangeRoom(Room*& RoomList)
+{
+	cout << endl
+		<< endl
+		<< "                客房管理系统" << endl
+		<< endl
+		<< "      ----------------------------------" << endl
+		<< endl
+		<< "         请输入需修改的客房的房号：";
+	string input;
+	cin >> input;
+	bool judge = 0;
+	Room* p = RoomList;
+	while (p != NULL)
+	{
+		if (input == p->Number)
+		{
+			cout << endl;
+			if (p->State == 0)
+			{
+				cout << "  请输入需修改的客房的类型：";
+				cin >> p->Type;
+				cout << "  请输入需修改的客房的单价：";
+				cin >> p->Price;
+			}
+			else cout << "该房间已有客人入住,请等客人退房后修改客房信息" << endl;
+			judge = 1;
+		}
+		p = p->next;
+	}
+	if (judge == 0)
+	{
+		system("cls");
+		cout << endl
+			<< endl
+			<< "                客房管理系统" << endl
+			<< endl
+			<< "      ----------------------------------" << endl
+			<< endl
+			<< "		          查无此房。" << endl;
+	}
+	system("pause");
+	system("cls");
+}

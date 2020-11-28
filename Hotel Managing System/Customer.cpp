@@ -189,6 +189,7 @@ void SearchCustomer(Customer*& CustomerList)
 	}
 	if (judge == 0)
 	{
+		system("cls");
 		cout << endl
 			<< endl
 			<< "                客房管理系统" << endl
@@ -307,4 +308,8 @@ void CheckOut(Room*& RoomList, Customer*& CustomerList)
 	}
 	system("pause");
 	system("cls");
+}
+void ChangeCustomer(Room*& RoomList, Customer*& CutomerList)
+{
+
 }

@@ -1,9 +1,23 @@
 ﻿#include <iostream>
 #include <fstream>
+#include <string>
+#include <conio.h>
 #include "Room.h"
 #include "File.h"
 #include "Customer.h"
 using namespace std;
+void IllegalChar()
+{
+	cout << endl
+		<< endl
+		<< "                客房管理系统" << endl
+		<< endl
+		<< "      ----------------------------------" << endl
+		<< endl
+		<< "                  非法字符。" << endl;
+	system("pause");
+	system("cls");
+}
 void Insert(Room*& RoomList, Customer*& CustomerList)
 {
 	cout << endl
@@ -19,7 +33,7 @@ void Insert(Room*& RoomList, Customer*& CustomerList)
 		<< "               3.返回上层菜单" << endl
 		<< "请选择：";
 	char ChooseFunction;
-	cin >> ChooseFunction;
+	ChooseFunction = getch();
 	system("cls");
 	switch (ChooseFunction)
 	{
@@ -33,20 +47,12 @@ void Insert(Room*& RoomList, Customer*& CustomerList)
 		return;
 		break;
 	default:
-		cout << endl
-			<< endl
-			<< "                客房管理系统" << endl
-			<< endl
-			<< "      ----------------------------------" << endl
-			<< endl
-			<< endl
-			<< "                  非法字符。" << endl;
-		system("pause");
-		system("cls");
+		IllegalChar();
 		Insert(RoomList, CustomerList);
 		return;
 	}
 	Insert(RoomList, CustomerList);
+	return;
 }
 void Search(Room*& RoomList, Customer*& CustomerList)
 {
@@ -68,7 +74,7 @@ void Search(Room*& RoomList, Customer*& CustomerList)
 		<< endl
 		<< "  请选择：";
 	char ChooseFunction;
-	cin >> ChooseFunction;
+	ChooseFunction = getch();
 	system("cls");
 	switch (ChooseFunction)
 	{
@@ -88,17 +94,45 @@ void Search(Room*& RoomList, Customer*& CustomerList)
 		return;
 		break;
 	default:
-		cout << endl
-			<< endl
-			<< "                客房管理系统" << endl
-			<< endl
-			<< "      ----------------------------------" << endl
-			<< endl
-			<< "                  非法字符。" << endl;
-		system("pause");
-		system("cls");
+		IllegalChar();
 	}
 	Search(RoomList, CustomerList);
+	return;
+}
+void Change(Room*& RoomList, Customer*& CustomerList)
+{
+	cout << endl
+		<< endl
+		<< "                客房管理系统" << endl
+		<< endl
+		<< "      ----------------------------------" << endl
+		<< endl
+		<< "               1.修改客房信息" << endl
+		<< endl
+		<< "               2.修改客人信息" << endl
+		<< endl
+		<< "               3.返回上层菜单" << endl
+		<< endl
+		<< "  请选择：";
+	char ChooseFunction;
+	ChooseFunction = getch();
+	system("cls");
+	switch (ChooseFunction)
+	{
+	case '1':
+		ChangeRoom(RoomList);
+		break;
+	case '2':
+		ChangeCustomer(RoomList, CustomerList);
+		break;
+	case '3':
+		return;
+		break;
+	default:
+		IllegalChar();
+	}
+	Change(RoomList, CustomerList);
+	return;
 }
 int main()
 {
@@ -139,7 +173,7 @@ int main()
 			<< endl;
 		cout << "请选择：";
 		char ChooseFunction = 0;
-		ChooseFunction = getchar();
+		ChooseFunction = getch();
 		system("cls");
 		switch (ChooseFunction)
 		{
@@ -153,7 +187,7 @@ int main()
 			CheckOut(RoomList, CustomerList);
 			break;
 		case '4':
-			//changedepend();
+			Change(RoomList, CustomerList);
 			break;
 		case '5':
 			Save(RoomList, CustomerList);
@@ -162,16 +196,7 @@ int main()
 			continue;
 			break;
 		default:
-			cout << endl
-				<< endl
-				<< "                客房管理系统" << endl
-				<< endl
-				<< "      ----------------------------------" << endl
-				<< endl
-				<< endl
-				<< "                  非法字符。" << endl;
-			system("pause");
-			system("cls");
+			IllegalChar();
 		}
 	}
 	return 0;

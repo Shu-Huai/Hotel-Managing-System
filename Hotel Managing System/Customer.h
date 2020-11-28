@@ -18,3 +18,4 @@ void InsertCustomer(Room*& RoomList, Customer*& CustomerList);
 void SearchCustomer(Customer*& CustomerList);
 void ShowCustomer(Customer*& CustomerList);
 void CheckOut(Room*& RoomList, Customer*& CutomerList);
+void ChangeCustomer(Room*& RoomList, Customer*& CutomerList);
