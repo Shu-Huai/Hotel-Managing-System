@@ -273,7 +273,7 @@ void CheckOut(Room*& RoomList, Customer*& CustomerList)
 	if (q == NULL)
 	{
 	}
-	else 
+	else
 	{
 		if (q == CustomerList)
 		{
@@ -311,5 +311,131 @@ void CheckOut(Room*& RoomList, Customer*& CustomerList)
 }
 void ChangeCustomer(Room*& RoomList, Customer*& CutomerList)
 {
-
+	cout << endl
+		<< endl
+		<< "                客房管理系统" << endl
+		<< endl
+		<< "      ----------------------------------" << endl
+		<< endl
+		<< "  请输入需修改的客人的身份信息（身份证号）：";
+	string input;
+	cin >> input;
+	system("cls");
+	cout << endl
+		<< endl
+		<< "                客房管理系统" << endl
+		<< endl
+		<< "      ----------------------------------" << endl
+		<< endl;
+	Customer* p = CutomerList;
+	int yy3, mm3, dd3;
+	while (p != NULL)
+	{
+		if (input == p->ID)
+		{
+			yy3 = p->OutDate / 10000;
+			mm3 = p->OutDate / 100 % 100;
+			dd3 = p->OutDate % 100;
+			string inroomnumber = p->InRoomNumber;
+			cout << "  请输入需修改的客人的姓名：";
+			cin >> p->Name;
+			cout << "  请输入需修改该客人入住日期：";
+			cin >> p->InDate;
+			cout << "  请输入需修改该客人退房日期：";
+			cin >> p->OutDate;
+			cout << "  是否需要更换房间（Y/N）：";
+			char ChooseFunction;
+			cin >> ChooseFunction;
+			if (ChooseFunction == 'Y' or ChooseFunction == 'y')
+			{
+				int InYear, InMonth, InDay, OutYear, OutMonth, OutDay;
+				InYear = p->InDate / 10000;
+				InMonth = p->InDate / 100 % 100;
+				InDay = p->InDate % 100;
+				OutYear = p->OutDate / 10000;
+				OutMonth = p->OutDate / 100 % 100;
+				OutDay = p->OutDate % 100;
+				Room* q = RoomList;
+			ShowRoom:
+				system("cls");
+				cout << endl
+					<< endl
+					<< "                客房管理系统" << endl
+					<< endl
+					<< "      ----------------------------------" << endl
+					<< endl;
+				while (q != NULL)
+				{
+					if (q->State != 1 and q->Price != 0)
+					{
+						cout << endl;
+						cout << "房间编号：" << q->Number << "  ";
+						cout << "房间类型：" << q->Type << "  ";
+						cout << "房间单价：" << q->Price << "  ";
+					}
+					q = q->next;
+				}
+				cout << endl;
+				cout << "  请选择房间（输入房间号）：" << endl;
+				string changenumber;
+				cin >> changenumber;
+				q = RoomList;
+				while (q != NULL)//更新房间与客人信息
+				{
+					if (changenumber == q->Number)
+					{
+						q->State = 1;
+						p->InRoomNumber = changenumber;
+						p->Cost = q->Price * GetInDays(InYear, InMonth, InDay, OutYear, OutMonth, OutDay);
+						system("cls");
+						cout << endl
+							<< endl
+							<< "                客房管理系统" << endl
+							<< endl
+							<< "      ----------------------------------" << endl
+							<< endl
+							<< "            已更新客房与客人信息。" << endl;
+						system("pause");
+						system("cls");
+						Room* clear = RoomList;
+						while (clear != NULL)
+						{
+							if (clear->Number == inroomnumber)
+							{
+								clear->State = 0;
+							}
+							clear = clear->next;
+						}
+						return;
+					}
+					q = q->next;
+				}
+				system("cls");
+				cout << endl
+					<< endl
+					<< "                客房管理系统" << endl
+					<< endl
+					<< "      ----------------------------------" << endl
+					<< endl
+					<< "        房间编号输入错误，请重新输入。" << endl;
+				system("pause");
+				goto ShowRoom;
+			}
+			system("cls");
+			cout << endl
+				<< endl
+				<< "                客房管理系统" << endl
+				<< endl
+				<< "      ----------------------------------" << endl
+				<< endl
+				<< "            已更新客房与客人信息。" << endl;
+			system("pause");
+			system("cls");
+			return;
+		}
+		p = p->next;
+	}
+	cout << "                 无该客人信息。";
+	system("pause");
+	system("cls");
 }
