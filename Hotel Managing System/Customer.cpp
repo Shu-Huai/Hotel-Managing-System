@@ -380,7 +380,7 @@ void ChangeCustomer(Room*& RoomList, Customer*& CutomerList)
 				string changenumber;
 				cin >> changenumber;
 				q = RoomList;
-				while (q != NULL)//更新房间与客人信息
+				while (q != NULL)
 				{
 					if (changenumber == q->Number)
 					{
