@@ -1,4 +1,4 @@
-#include "Room List.h"
+ï»¿#include "Room List.h"
 #include <iostream>
 RoomList::RoomList() : length_(0)
 {
@@ -36,20 +36,20 @@ bool RoomList::IsRoomExist(int number)
 	{
 		if (number == p->number_)
 		{
-			return 1;
+			return true;
 		}
 		p = p->next_;
 	}
-	return 0;
+	return false;
 }
-void RoomList::GetRoom(int i, int& number, QString& type, int& price, bool& state) const
+void RoomList::GetRoom(int index, int& number, QString& type, int& price, bool& state) const
 {
-	if (i < 1 || i > length_)
+	if (index < 0 || index >= length_)
 	{
-		throw std::string("·¶Î§´íÎó¡£");
+		throw std::string("èŒƒå›´é”™è¯¯ã€‚");
 	}
-	Room* p = head_;
-	for (int j = 0; j < i; j++)
+	Room* p = head_->next_;
+	for (int j = 0; j < index; j++)
 	{
 		p = p->next_;
 	}
@@ -65,28 +65,23 @@ void RoomList::Insert(const int& number, const QString& type, const int& price, 
 	{
 		p = p->next_;
 	}
-	Room* q = new Room;
-	*q = Room(number, type, price, state, NULL);
+	Room* q = new Room(number, type, price, state, p->next_);
 	p->next_ = q;
 	length_++;
 }
-void RoomList::DeleteRoom(int i)
+void RoomList::DeleteRoom(int index)
 {
-	if (i == -1)
+	if (index < 0 || index >= length_)
 	{
-		i = length_;
-	}
-	if (i < 1 || i > length_)
-	{
-		throw std::string("·¶Î§´íÎó¡£");
+		throw std::string("èŒƒå›´é”™è¯¯ã€‚");
 	}
 	Room* p = head_;
-	for (int j = 0; j < i - 1; j++)
+	for (int j = 0; j < index; j++)
 	{
 		p = p->next_;
 	}
 	Room* q = p->next_;
-	p->next_ = p->next_->next_;
+	p->next_ = q->next_;
 	delete q;
 	length_--;
 }
@@ -102,7 +97,7 @@ RoomList& RoomList::operator=(const RoomList& list_)
 			QString type = "";
 			int price = 0;
 			bool state = 0;
-			list_.GetRoom(i + 1, number, type, price, state);
+			list_.GetRoom(i, number, type, price, state);
 			Insert(number, type, price, state);
 		}
 	}

@@ -7,14 +7,13 @@ class InsertDialog : public QDialog
 	friend class HotelManagingSystem;
 	Q_OBJECT
 public:
-	InsertDialog(QWidget* parent = NULL);
+	InsertDialog(RoomList& list, QWidget* parent = NULL);
 	~InsertDialog();
 public slots:
 	void InsertRoom();
 	void InsertCustomer();
-protected:
-	RoomList list_;
 private:
 	Ui::InsertDialog ui_;
 	InsertRoomDialog* insertRoomDialog_;
+	RoomList& list_;
 };

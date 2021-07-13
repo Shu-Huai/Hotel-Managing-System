@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>471</width>
-    <height>327</height>
+    <width>400</width>
+    <height>225</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -142,19 +142,6 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="returnButton">
-           <property name="font">
-            <font>
-             <family>宋体</family>
-             <pointsize>12</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>返回</string>
-           </property>
-          </widget>
-         </item>
-         <item>
           <widget class="QPushButton" name="clearButton">
            <property name="font">
             <font>
@@ -164,6 +151,19 @@
            </property>
            <property name="text">
             <string>清除</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="returnButton">
+           <property name="font">
+            <font>
+             <family>宋体</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>返回</string>
            </property>
           </widget>
          </item>

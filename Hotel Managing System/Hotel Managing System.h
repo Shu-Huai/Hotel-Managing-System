@@ -10,11 +10,11 @@ class HotelManagingSystem : public QMainWindow
 	Q_OBJECT
 public:
 	HotelManagingSystem(QWidget* parent = Q_NULLPTR);
+	void Exit();
 public slots:
 	void Insert();
-protected:
-	RoomList list_;
 private:
 	Ui::HotelManagementClass ui_;
 	InsertDialog* insertDialog_;
+	RoomList list_;
 };
