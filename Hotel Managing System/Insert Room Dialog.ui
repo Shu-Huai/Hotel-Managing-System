@@ -27,6 +27,38 @@
        <widget class="QWidget" name="inputPanel" native="true">
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
+          <widget class="QWidget" name="numberPanel" native="true">
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <widget class="QLabel" name="numberLabel">
+              <property name="font">
+               <font>
+                <family>宋体</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>房间号码：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="numberEdit">
+              <property name="font">
+               <font>
+                <family>宋体</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
           <widget class="QWidget" name="typePanel" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_2">
             <item>
@@ -76,38 +108,6 @@
             </item>
             <item>
              <widget class="QLineEdit" name="priceEdit">
-              <property name="font">
-               <font>
-                <family>宋体</family>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </item>
-         <item>
-          <widget class="QWidget" name="numberPanel" native="true">
-           <layout class="QHBoxLayout" name="horizontalLayout">
-            <item>
-             <widget class="QLabel" name="numberLabel">
-              <property name="font">
-               <font>
-                <family>宋体</family>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>房间号码：</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="numberEdit">
               <property name="font">
                <font>
                 <family>宋体</family>

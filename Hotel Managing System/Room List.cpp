@@ -61,7 +61,7 @@ void RoomList::GetRoom(int index, int& number, QString& type, int& price, bool& 
 void RoomList::Insert(const int& number, const QString& type, const int& price, const bool& state)
 {
 	Room* p = head_;
-	while (p->next_)
+	while (p->next_ && p->next_->number_ <= number)
 	{
 		p = p->next_;
 	}

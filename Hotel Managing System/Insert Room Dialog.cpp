@@ -40,7 +40,11 @@ void InsertRoomDialog::InsertRoom()
 	QString type = ui_.typeEdit->text();
 	int price = ui_.priceEdit->text().toInt();
 	list_.Insert(number, type, price, 0);
-
+	QFile RoomFile("Room.txt");
+	RoomFile.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append);
+	QTextStream out(&RoomFile);
+	out << '\n' << number << " " << type << " " << price << " " << 0 ;
+	RoomFile.close();
 	QMessageBox box(QMessageBox::Information, "成功", "操作成功。");
 	box.setWindowIcon(QIcon(":/HotelManagement/Information Icon.ico"));
 	box.setIconPixmap(QPixmap(":/HotelManagement/Information Icon.ico").scaled(32, 32));

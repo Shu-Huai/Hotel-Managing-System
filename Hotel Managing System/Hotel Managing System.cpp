@@ -16,7 +16,6 @@ HotelManagingSystem::HotelManagingSystem(QWidget* parent) : QMainWindow(parent),
 		inp >> number >> type >> price >> state;
 		list_.Insert(number, type, price, bool(state));
 	}
-	list_.DeleteRoom(list_.GetLength() - 1);
 	RoomFile.close();
 }
 void HotelManagingSystem::Exit()
