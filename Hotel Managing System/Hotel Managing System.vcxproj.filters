@@ -21,13 +21,13 @@
     <ClCompile Include="Hotel Managing System.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="File.cpp">
+    <ClCompile Include="Customer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Room.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Customer.cpp">
+    <ClCompile Include="File.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

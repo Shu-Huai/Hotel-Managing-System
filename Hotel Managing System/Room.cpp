@@ -1,14 +1,14 @@
-#include "Room.h"
+ï»¿#include "Room.h"
 void InsertRoom(Room*& RoomList)
 {
 	cout << endl
 		<< endl
-		<< "                ¿Í·¿¹ÜÀíÏµÍ³" << endl
+		<< "                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ" << endl
 		<< endl
 		<< "      ----------------------------------" << endl
 		<< endl
 		<< endl
-		<< "ÇëÊäÈëÐèÂ¼ÈëµÄ·¿¼ä±àºÅ£º";
+		<< "è¯·è¾“å…¥éœ€å½•å…¥çš„æˆ¿é—´ç¼–å·ï¼š";
 	Room* TempRoom = new Room;
 	cin >> TempRoom->Number;
 	Room* p = RoomList;
@@ -19,20 +19,20 @@ void InsertRoom(Room*& RoomList)
 			system("cls");
 			cout << endl
 				<< endl
-				<< "                ¿Í·¿¹ÜÀíÏµÍ³" << endl
+				<< "                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ" << endl
 				<< endl
 				<< "      ----------------------------------" << endl
 				<< endl
 				<< endl
-				<< "                ¸Ã·¿¼äÒÑ´æÔÚ¡£" << endl;
+				<< "                è¯¥æˆ¿é—´å·²å­˜åœ¨ã€‚" << endl;
 			system("pause");
 			goto Continue;
 		}
 		p = p->next;
 	}
-	cout << "ÇëÊäÈëÐèÈë×¡µÄ·¿¼äÀàÐÍ£º";
+	cout << "è¯·è¾“å…¥éœ€å…¥ä½çš„æˆ¿é—´ç±»åž‹ï¼š";
 	cin >> TempRoom->Type;
-	cout << "ÇëÊäÈë¸Ã·¿¼äµ¥¼Û£¨µ¥Î»RMB£©£¨ÇëÎñ±ØÊäÈëÊý×Ö£©£º";
+	cout << "è¯·è¾“å…¥è¯¥æˆ¿é—´å•ä»·ï¼ˆå•ä½RMBï¼‰ï¼ˆè¯·åŠ¡å¿…è¾“å…¥æ•°å­—ï¼‰ï¼š";
 	cin >> TempRoom->Price;
 	TempRoom->State = 0;
 	TempRoom->next = RoomList;
@@ -40,12 +40,12 @@ void InsertRoom(Room*& RoomList)
 	system("cls");
 	cout << endl
 		<< endl
-		<< "                ¿Í·¿¹ÜÀíÏµÍ³" << endl
+		<< "                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ" << endl
 		<< endl
 		<< "      ----------------------------------" << endl
 		<< endl
 		<< endl
-		<< "                  Â¼Èë³É¹¦¡£" << endl;
+		<< "                  å½•å…¥æˆåŠŸã€‚" << endl;
 	system("pause");
 	system("cls");
 Continue:
@@ -53,12 +53,12 @@ Continue:
 	system("cls");
 	cout << endl
 		<< endl
-		<< "                ¿Í·¿¹ÜÀíÏµÍ³" << endl
+		<< "                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ" << endl
 		<< endl
 		<< "      ----------------------------------" << endl
 		<< endl
 		<< endl
-		<< "         ÊÇ·ñÐèÒª¼ÌÐøÂ¼Èë·¿¼ä£¿£¨Y/N£©" << endl;
+		<< "         æ˜¯å¦éœ€è¦ç»§ç»­å½•å…¥æˆ¿é—´ï¼Ÿï¼ˆY/Nï¼‰" << endl;
 	char input;
 	input = getchar();
 	system("cls");
@@ -73,11 +73,11 @@ void SearchByType(Room*& RoomList)
 {
 	cout << endl
 		<< endl
-		<< "                ¿Í·¿¹ÜÀíÏµÍ³" << endl
+		<< "                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ" << endl
 		<< endl
 		<< "      ----------------------------------" << endl
 		<< endl
-		<< "    ÇëÊäÈëÐè²éÕÒµÄ·¿¼äÀàÐÍ£º";
+		<< "    è¯·è¾“å…¥éœ€æŸ¥æ‰¾çš„æˆ¿é—´ç±»åž‹ï¼š";
 	string input;
 	cin >> input;
 	bool judge = 0;
@@ -87,16 +87,16 @@ void SearchByType(Room*& RoomList)
 		if (input == p->Type)
 		{
 			cout << endl
-				<< "·¿¼ä±àºÅ" << p->Number << "    "
-				<< "·¿¼äÀàÐÍ" << p->Type << "    "
-				<< "·¿¼äµ¥¼Û" << p->Price << "    ";
+				<< "æˆ¿é—´ç¼–å·" << p->Number << "    "
+				<< "æˆ¿é—´ç±»åž‹" << p->Type << "    "
+				<< "æˆ¿é—´å•ä»·" << p->Price << "    ";
 			if (p->State == 0)
 			{
-				cout << "¸Ã·¿¼äÎÞÈË¡£" << endl;
+				cout << "è¯¥æˆ¿é—´æ— äººã€‚" << endl;
 			}
 			else
 			{
-				cout << "¸Ã·¿¼äÒÑÓÐ¿ÍÈËÈë×¡¡£" << endl;
+				cout << "è¯¥æˆ¿é—´å·²æœ‰å®¢äººå…¥ä½ã€‚" << endl;
 			}
 			judge = 1;
 		}
@@ -105,9 +105,9 @@ void SearchByType(Room*& RoomList)
 	if (judge == 0)
 	{
 		system("cls");
-		cout << "\n\n                ¿Í·¿¹ÜÀíÏµÍ³             \n\n";
+		cout << "\n\n                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ             \n\n";
 		cout << "      ----------------------------------   \n\n";
-		cout << "		 ²éÎÞ´ËÀà·¿¼ä·¿" << endl;
+		cout << "		 æŸ¥æ— æ­¤ç±»æˆ¿é—´æˆ¿" << endl;
 	}
 	system("pause");
 	system("cls");
@@ -116,11 +116,11 @@ void SearchByPrice(Room*& RoomList)
 {
 	cout << endl
 		<< endl
-		<< "                ¿Í·¿¹ÜÀíÏµÍ³" << endl
+		<< "                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ" << endl
 		<< endl
 		<< "      ----------------------------------" << endl
 		<< endl
-		<< "ÇëÊäÈëÐè²éÕÒµÄ·¿¼äÉÏÏÂ¼Û¸ñÇø¼ä(ÏÂÏÞ ÉÏÏÞ)£º";
+		<< "è¯·è¾“å…¥éœ€æŸ¥æ‰¾çš„æˆ¿é—´ä¸Šä¸‹ä»·æ ¼åŒºé—´(ä¸‹é™ ä¸Šé™)ï¼š";
 	int min, max;
 	cin >> min >> max;
 	Room* p = RoomList;
@@ -129,16 +129,16 @@ void SearchByPrice(Room*& RoomList)
 		if (p->Price >= min and p->Price <= max)
 		{
 			cout << endl
-				<< "·¿¼ä±àºÅ" << p->Number << "    "
-				<< "·¿¼äÀàÐÍ" << p->Type << "    "
-				<< "·¿¼äµ¥¼Û" << p->Price << "    ";
+				<< "æˆ¿é—´ç¼–å·" << p->Number << "    "
+				<< "æˆ¿é—´ç±»åž‹" << p->Type << "    "
+				<< "æˆ¿é—´å•ä»·" << p->Price << "    ";
 			if (p->State == 0)
 			{
-				cout << "¸Ã·¿¼äÎÞÈË¡£" << endl;
+				cout << "è¯¥æˆ¿é—´æ— äººã€‚" << endl;
 			}
 			else
 			{
-				cout << "¸Ã·¿¼äÒÑÓÐ¿ÍÈËÈë×¡¡£" << endl;
+				cout << "è¯¥æˆ¿é—´å·²æœ‰å®¢äººå…¥ä½ã€‚" << endl;
 			}
 		}
 		p = p->next;
@@ -150,11 +150,11 @@ void ChangeRoom(Room*& RoomList)
 {
 	cout << endl
 		<< endl
-		<< "                ¿Í·¿¹ÜÀíÏµÍ³" << endl
+		<< "                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ" << endl
 		<< endl
 		<< "      ----------------------------------" << endl
 		<< endl
-		<< "         ÇëÊäÈëÐèÐÞ¸ÄµÄ¿Í·¿µÄ·¿ºÅ£º";
+		<< "         è¯·è¾“å…¥éœ€ä¿®æ”¹çš„å®¢æˆ¿çš„æˆ¿å·ï¼š";
 	string input;
 	cin >> input;
 	bool judge = 0;
@@ -166,12 +166,12 @@ void ChangeRoom(Room*& RoomList)
 			cout << endl;
 			if (p->State == 0)
 			{
-				cout << "  ÇëÊäÈëÐèÐÞ¸ÄµÄ¿Í·¿µÄÀàÐÍ£º";
+				cout << "  è¯·è¾“å…¥éœ€ä¿®æ”¹çš„å®¢æˆ¿çš„ç±»åž‹ï¼š";
 				cin >> p->Type;
-				cout << "  ÇëÊäÈëÐèÐÞ¸ÄµÄ¿Í·¿µÄµ¥¼Û£º";
+				cout << "  è¯·è¾“å…¥éœ€ä¿®æ”¹çš„å®¢æˆ¿çš„å•ä»·ï¼š";
 				cin >> p->Price;
 			}
-			else cout << "¸Ã·¿¼äÒÑÓÐ¿ÍÈËÈë×¡,ÇëµÈ¿ÍÈËÍË·¿ºóÐÞ¸Ä¿Í·¿ÐÅÏ¢" << endl;
+			else cout << "è¯¥æˆ¿é—´å·²æœ‰å®¢äººå…¥ä½,è¯·ç­‰å®¢äººé€€æˆ¿åŽä¿®æ”¹å®¢æˆ¿ä¿¡æ¯" << endl;
 			judge = 1;
 		}
 		p = p->next;
@@ -181,11 +181,11 @@ void ChangeRoom(Room*& RoomList)
 		system("cls");
 		cout << endl
 			<< endl
-			<< "                ¿Í·¿¹ÜÀíÏµÍ³" << endl
+			<< "                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ" << endl
 			<< endl
 			<< "      ----------------------------------" << endl
 			<< endl
-			<< "		          ²éÎÞ´Ë·¿¡£" << endl;
+			<< "		          æŸ¥æ— æ­¤æˆ¿ã€‚" << endl;
 	}
 	system("pause");
 	system("cls");

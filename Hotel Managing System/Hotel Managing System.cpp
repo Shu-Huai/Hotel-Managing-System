@@ -1,10 +1,11 @@
-﻿#include <iostream>
+﻿#pragma warning(disable:4996)
+#include <iostream>
 #include <fstream>
 #include <string>
 #include <conio.h>
-#include "Room.h"
-#include "File.h"
 #include "Customer.h"
+#include "File.h"
+#include "Room.h"
 using namespace std;
 void IllegalChar()
 {

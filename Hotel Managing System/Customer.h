@@ -1,6 +1,6 @@
-#pragma once
-#include "Room.h"
+﻿#pragma once
 #include <iostream>
+#include "Room.h"
 using namespace std;
 struct Customer
 {

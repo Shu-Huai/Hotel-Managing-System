@@ -1,4 +1,4 @@
-#include "Customer.h"
+ï»¿#include "Customer.h"
 using namespace std;
 int GetDays(int year, int month, int day)
 {
@@ -32,11 +32,11 @@ void InsertCustomer(Room*& RoomList, Customer*& CustomerList)
 	Customer* TempCustomer = new Customer;
 	cout << endl
 		<< endl
-		<< "                ¿Í·¿¹ÜÀíÏµÍ³" << endl
+		<< "                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ" << endl
 		<< endl
 		<< "      ----------------------------------" << endl
 		<< endl
-		<< "ÇëÊäÈëÐèÈë×¡µÄ¿ÍÈËµÄÉí·ÝÐÅÏ¢£¨Éí·ÝÖ¤ºÅ£©£º";
+		<< "è¯·è¾“å…¥éœ€å…¥ä½çš„å®¢äººçš„èº«ä»½ä¿¡æ¯ï¼ˆèº«ä»½è¯å·ï¼‰ï¼š";
 	cin >> TempCustomer->ID;
 	Customer* p = CustomerList;
 	while (p != NULL)
@@ -46,11 +46,11 @@ void InsertCustomer(Room*& RoomList, Customer*& CustomerList)
 			system("cls");
 			cout << endl
 				<< endl
-				<< "                ¿Í·¿¹ÜÀíÏµÍ³" << endl
+				<< "                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ" << endl
 				<< endl
 				<< "      ----------------------------------" << endl
 				<< endl
-				<< "¸Ã¿ÍÈËÒÑ´æÔÚ£¬ÈçÐèÐÞ¸ÄÇëÊäÈëY,»Øµ½Ö÷²Ëµ¥ÇëÊäÈëÈÎÒâ×ÖÄ¸£º";
+				<< "è¯¥å®¢äººå·²å­˜åœ¨ï¼Œå¦‚éœ€ä¿®æ”¹è¯·è¾“å…¥Y,å›žåˆ°ä¸»èœå•è¯·è¾“å…¥ä»»æ„å­—æ¯ï¼š";
 			char input;
 			input = getchar();
 			if (input == 'Y' or input == 'y')
@@ -61,11 +61,11 @@ void InsertCustomer(Room*& RoomList, Customer*& CustomerList)
 		}
 		p = p->next;
 	}
-	cout << "ÇëÊäÈëÐèÈë×¡µÄ¿ÍÈËµÄÐÕÃû£º";
+	cout << "è¯·è¾“å…¥éœ€å…¥ä½çš„å®¢äººçš„å§“åï¼š";
 	cin >> TempCustomer->Name;
-	cout << "ÇëÊäÈëÐèÈë×¡¸Ã¿ÍÈËÈë×¡ÈÕÆÚ£º";
+	cout << "è¯·è¾“å…¥éœ€å…¥ä½è¯¥å®¢äººå…¥ä½æ—¥æœŸï¼š";
 	cin >> TempCustomer->InDate;
-	cout << "ÇëÊäÈëÐèÈë×¡¸Ã¿ÍÈËÍË·¿ÈÕÆÚ£º";
+	cout << "è¯·è¾“å…¥éœ€å…¥ä½è¯¥å®¢äººé€€æˆ¿æ—¥æœŸï¼š";
 	cin >> TempCustomer->OutDate;
 	int InYear, InMonth, InDay, OutYear, OutMonth, OutDay;
 	InYear = TempCustomer->InDate / 10000;
@@ -79,13 +79,13 @@ void InsertCustomer(Room*& RoomList, Customer*& CustomerList)
 	system("cls");
 	cout << endl
 		<< endl
-		<< "                ¿Í·¿¹ÜÀíÏµÍ³" << endl
+		<< "                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ" << endl
 		<< endl
 		<< "      ----------------------------------" << endl
 		<< endl;
 	if (q == NULL)
 	{
-		cout << "              ÇëÏÈÂ¼Èë¿Í·¿ÐÅÏ¢¡£";
+		cout << "              è¯·å…ˆå½•å…¥å®¢æˆ¿ä¿¡æ¯ã€‚";
 		system("pause");
 		return;
 	}
@@ -95,21 +95,21 @@ ShowRoom:
 		if (q->State != 1 and q->Price != 0)
 		{
 			cout << endl;
-			cout << "·¿¼ä±àºÅ£º" << q->Number << "  ";
-			cout << "·¿¼äÀàÐÍ£º" << q->Type << "  ";
-			cout << "·¿¼äµ¥¼Û£º" << q->Price << "  ";
+			cout << "æˆ¿é—´ç¼–å·ï¼š" << q->Number << "  ";
+			cout << "æˆ¿é—´ç±»åž‹ï¼š" << q->Type << "  ";
+			cout << "æˆ¿é—´å•ä»·ï¼š" << q->Price << "  ";
 			i = 1;
 		}
 		q = q->next;
 	}
 	if (q == NULL and i == 0)
 	{
-		cout << "   ÔÝÎÞ¿Õ·¿¼ä¡£";
+		cout << "   æš‚æ— ç©ºæˆ¿é—´ã€‚";
 		system("pause");
 		return;
 	}
 	cout << endl
-		<< "  ÇëÑ¡Ôñ·¿¼ä£¨ÊäÈë·¿¼äºÅ£©£º" << endl;
+		<< "  è¯·é€‰æ‹©æˆ¿é—´ï¼ˆè¾“å…¥æˆ¿é—´å·ï¼‰ï¼š" << endl;
 	string number;
 	cin >> number;
 	q = RoomList;
@@ -130,11 +130,11 @@ ShowRoom:
 	{
 		cout << endl
 			<< endl
-			<< "                ¿Í·¿¹ÜÀíÏµÍ³" << endl
+			<< "                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ" << endl
 			<< endl
 			<< "      ----------------------------------" << endl
 			<< endl
-			<< "            ÒÑ¸üÐÂ¿Í·¿Óë¿ÍÈËÐÅÏ¢¡£" << endl;
+			<< "            å·²æ›´æ–°å®¢æˆ¿ä¸Žå®¢äººä¿¡æ¯ã€‚" << endl;
 		system("pause");
 		system("cls");
 		TempCustomer->next = CustomerList;
@@ -144,11 +144,11 @@ ShowRoom:
 	{
 		cout << endl
 			<< endl
-			<< "                ¿Í·¿¹ÜÀíÏµÍ³" << endl
+			<< "                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ" << endl
 			<< endl
 			<< "      ----------------------------------" << endl
 			<< endl
-			<< "        ·¿¼ä±àºÅÊäÈë´íÎó£¬ÇëÖØÐÂÊäÈë¡£" << endl
+			<< "        æˆ¿é—´ç¼–å·è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥ã€‚" << endl
 			<< endl;
 		goto ShowRoom;
 	}
@@ -157,11 +157,11 @@ void SearchCustomer(Customer*& CustomerList)
 {
 	cout << endl
 		<< endl
-		<< "                ¿Í·¿¹ÜÀíÏµÍ³" << endl
+		<< "                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ" << endl
 		<< endl
 		<< "      ----------------------------------" << endl
 		<< endl
-		<< "      ÇëÊäÈëÐè²éÕÒµÄ¿ÍÈËÐÕÃû»òÉí·ÝÖ¤£º";
+		<< "      è¯·è¾“å…¥éœ€æŸ¥æ‰¾çš„å®¢äººå§“åæˆ–èº«ä»½è¯ï¼š";
 	string input;
 	cin >> input;
 	bool judge = 0;
@@ -171,17 +171,17 @@ void SearchCustomer(Customer*& CustomerList)
 		if (input == p->Name or input == p->ID)
 		{
 			cout << endl
-				<< "¿ÍÈËÐÕÃû" << p->Name << endl
+				<< "å®¢äººå§“å" << p->Name << endl
 				<< endl
-				<< "¿ÍÈËÉí·ÝÖ¤ºÅ" << p->ID << endl
+				<< "å®¢äººèº«ä»½è¯å·" << p->ID << endl
 				<< endl
-				<< "¿ÍÈËÈë×¡Ê±¼ä" << p->InDate << endl
+				<< "å®¢äººå…¥ä½æ—¶é—´" << p->InDate << endl
 				<< endl
-				<< "¿ÍÈËÍË·¿Ê±¼ä" << p->OutDate << endl
+				<< "å®¢äººé€€æˆ¿æ—¶é—´" << p->OutDate << endl
 				<< endl
-				<< "¿ÍÈËÈë×¡·¿ºÅ" << p->InRoomNumber << endl
+				<< "å®¢äººå…¥ä½æˆ¿å·" << p->InRoomNumber << endl
 				<< endl
-				<< "¿ÍÈËÏû·Ñ½ð¶î" << p->Cost << endl
+				<< "å®¢äººæ¶ˆè´¹é‡‘é¢" << p->Cost << endl
 				<< endl;
 			judge = 1;
 		}
@@ -192,11 +192,11 @@ void SearchCustomer(Customer*& CustomerList)
 		system("cls");
 		cout << endl
 			<< endl
-			<< "                ¿Í·¿¹ÜÀíÏµÍ³" << endl
+			<< "                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ" << endl
 			<< endl
 			<< "      ----------------------------------" << endl
 			<< endl
-			<< "		          ²éÎÞ´ËÈË¡£" << endl;
+			<< "		          æŸ¥æ— æ­¤äººã€‚" << endl;
 	}
 	system("pause");
 	system("cls");
@@ -205,7 +205,7 @@ void ShowCustomer(Customer*& CustomerList)
 {
 	cout << endl
 		<< endl
-		<< "                ¿Í·¿¹ÜÀíÏµÍ³" << endl
+		<< "                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ" << endl
 		<< endl
 		<< "      ----------------------------------" << endl
 		<< endl;
@@ -213,18 +213,18 @@ void ShowCustomer(Customer*& CustomerList)
 	Customer* p = CustomerList;
 	while (p != NULL)
 	{
-		cout << "¿ÍÈËÐÕÃû" << p->Name << "    "
-			<< "¿ÍÈËÉí·ÝÖ¤ºÅ" << p->ID << "   "
-			<< "¿ÍÈËÈë×¡Ê±¼ä" << p->InDate << "   "
-			<< "¿ÍÈËÍË·¿Ê±¼ä" << p->OutDate << "  "
-			<< "¿ÍÈËÈë×¡·¿ºÅ" << p->InRoomNumber << "  "
-			<< "¿ÍÈËÏû·Ñ½ð¶î" << p->Cost << endl
+		cout << "å®¢äººå§“å" << p->Name << "    "
+			<< "å®¢äººèº«ä»½è¯å·" << p->ID << "   "
+			<< "å®¢äººå…¥ä½æ—¶é—´" << p->InDate << "   "
+			<< "å®¢äººé€€æˆ¿æ—¶é—´" << p->OutDate << "  "
+			<< "å®¢äººå…¥ä½æˆ¿å·" << p->InRoomNumber << "  "
+			<< "å®¢äººæ¶ˆè´¹é‡‘é¢" << p->Cost << endl
 			<< endl;
 		judge = 1;
 		p = p->next;
 	}
 	if (judge == 0)
-		cout << "             ÔÝÎÞ¿ÍÈËÐÅÏ¢¡£" << endl
+		cout << "             æš‚æ— å®¢äººä¿¡æ¯ã€‚" << endl
 		<< endl;
 	system("pause");
 	system("cls");
@@ -233,11 +233,11 @@ void CheckOut(Room*& RoomList, Customer*& CustomerList)
 {
 	cout << endl
 		<< endl
-		<< "                ¿Í·¿¹ÜÀíÏµÍ³" << endl
+		<< "                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ" << endl
 		<< endl
 		<< "      ----------------------------------" << endl
 		<< endl
-		<< "       ÇëÊäÈëÍË·¿¿ÍÈËÉí·ÝÖ¤ºÅ»òÐÕÃû£º";
+		<< "       è¯·è¾“å…¥é€€æˆ¿å®¢äººèº«ä»½è¯å·æˆ–å§“åï¼š";
 	string input;
 	cin >> input;
 	int pay = 0;
@@ -290,21 +290,21 @@ void CheckOut(Room*& RoomList, Customer*& CustomerList)
 	{
 		cout << endl
 			<< endl
-			<< "                ¿Í·¿¹ÜÀíÏµÍ³" << endl
+			<< "                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ" << endl
 			<< endl
 			<< "      ----------------------------------" << endl
 			<< endl
-			<< "       ¿ÍÈËÍË·¿³É¹¦£¬ÐèÖ§¸¶: " << pay << endl;
+			<< "       å®¢äººé€€æˆ¿æˆåŠŸï¼Œéœ€æ”¯ä»˜: " << pay << endl;
 	}
 	else
 	{
 		cout << endl
 			<< endl
-			<< "                ¿Í·¿¹ÜÀíÏµÍ³" << endl
+			<< "                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ" << endl
 			<< endl
 			<< "      ----------------------------------" << endl
 			<< endl
-			<< "                ¸Ã¿ÍÈË²»´æÔÚ¡£" << endl;
+			<< "                è¯¥å®¢äººä¸å­˜åœ¨ã€‚" << endl;
 	}
 	system("pause");
 	system("cls");
@@ -313,17 +313,17 @@ void ChangeCustomer(Room*& RoomList, Customer*& CutomerList)
 {
 	cout << endl
 		<< endl
-		<< "                ¿Í·¿¹ÜÀíÏµÍ³" << endl
+		<< "                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ" << endl
 		<< endl
 		<< "      ----------------------------------" << endl
 		<< endl
-		<< "  ÇëÊäÈëÐèÐÞ¸ÄµÄ¿ÍÈËµÄÉí·ÝÐÅÏ¢£¨Éí·ÝÖ¤ºÅ£©£º";
+		<< "  è¯·è¾“å…¥éœ€ä¿®æ”¹çš„å®¢äººçš„èº«ä»½ä¿¡æ¯ï¼ˆèº«ä»½è¯å·ï¼‰ï¼š";
 	string input;
 	cin >> input;
 	system("cls");
 	cout << endl
 		<< endl
-		<< "                ¿Í·¿¹ÜÀíÏµÍ³" << endl
+		<< "                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ" << endl
 		<< endl
 		<< "      ----------------------------------" << endl
 		<< endl;
@@ -337,13 +337,13 @@ void ChangeCustomer(Room*& RoomList, Customer*& CutomerList)
 			mm3 = p->OutDate / 100 % 100;
 			dd3 = p->OutDate % 100;
 			string inroomnumber = p->InRoomNumber;
-			cout << "  ÇëÊäÈëÐèÐÞ¸ÄµÄ¿ÍÈËµÄÐÕÃû£º";
+			cout << "  è¯·è¾“å…¥éœ€ä¿®æ”¹çš„å®¢äººçš„å§“åï¼š";
 			cin >> p->Name;
-			cout << "  ÇëÊäÈëÐèÐÞ¸Ä¸Ã¿ÍÈËÈë×¡ÈÕÆÚ£º";
+			cout << "  è¯·è¾“å…¥éœ€ä¿®æ”¹è¯¥å®¢äººå…¥ä½æ—¥æœŸï¼š";
 			cin >> p->InDate;
-			cout << "  ÇëÊäÈëÐèÐÞ¸Ä¸Ã¿ÍÈËÍË·¿ÈÕÆÚ£º";
+			cout << "  è¯·è¾“å…¥éœ€ä¿®æ”¹è¯¥å®¢äººé€€æˆ¿æ—¥æœŸï¼š";
 			cin >> p->OutDate;
-			cout << "  ÊÇ·ñÐèÒª¸ü»»·¿¼ä£¨Y/N£©£º";
+			cout << "  æ˜¯å¦éœ€è¦æ›´æ¢æˆ¿é—´ï¼ˆY/Nï¼‰ï¼š";
 			char ChooseFunction;
 			cin >> ChooseFunction;
 			if (ChooseFunction == 'Y' or ChooseFunction == 'y')
@@ -360,7 +360,7 @@ void ChangeCustomer(Room*& RoomList, Customer*& CutomerList)
 				system("cls");
 				cout << endl
 					<< endl
-					<< "                ¿Í·¿¹ÜÀíÏµÍ³" << endl
+					<< "                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ" << endl
 					<< endl
 					<< "      ----------------------------------" << endl
 					<< endl;
@@ -369,14 +369,14 @@ void ChangeCustomer(Room*& RoomList, Customer*& CutomerList)
 					if (q->State != 1 and q->Price != 0)
 					{
 						cout << endl;
-						cout << "·¿¼ä±àºÅ£º" << q->Number << "  ";
-						cout << "·¿¼äÀàÐÍ£º" << q->Type << "  ";
-						cout << "·¿¼äµ¥¼Û£º" << q->Price << "  ";
+						cout << "æˆ¿é—´ç¼–å·ï¼š" << q->Number << "  ";
+						cout << "æˆ¿é—´ç±»åž‹ï¼š" << q->Type << "  ";
+						cout << "æˆ¿é—´å•ä»·ï¼š" << q->Price << "  ";
 					}
 					q = q->next;
 				}
 				cout << endl;
-				cout << "  ÇëÑ¡Ôñ·¿¼ä£¨ÊäÈë·¿¼äºÅ£©£º" << endl;
+				cout << "  è¯·é€‰æ‹©æˆ¿é—´ï¼ˆè¾“å…¥æˆ¿é—´å·ï¼‰ï¼š" << endl;
 				string changenumber;
 				cin >> changenumber;
 				q = RoomList;
@@ -390,11 +390,11 @@ void ChangeCustomer(Room*& RoomList, Customer*& CutomerList)
 						system("cls");
 						cout << endl
 							<< endl
-							<< "                ¿Í·¿¹ÜÀíÏµÍ³" << endl
+							<< "                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ" << endl
 							<< endl
 							<< "      ----------------------------------" << endl
 							<< endl
-							<< "            ÒÑ¸üÐÂ¿Í·¿Óë¿ÍÈËÐÅÏ¢¡£" << endl;
+							<< "            å·²æ›´æ–°å®¢æˆ¿ä¸Žå®¢äººä¿¡æ¯ã€‚" << endl;
 						system("pause");
 						system("cls");
 						Room* clear = RoomList;
@@ -413,29 +413,29 @@ void ChangeCustomer(Room*& RoomList, Customer*& CutomerList)
 				system("cls");
 				cout << endl
 					<< endl
-					<< "                ¿Í·¿¹ÜÀíÏµÍ³" << endl
+					<< "                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ" << endl
 					<< endl
 					<< "      ----------------------------------" << endl
 					<< endl
-					<< "        ·¿¼ä±àºÅÊäÈë´íÎó£¬ÇëÖØÐÂÊäÈë¡£" << endl;
+					<< "        æˆ¿é—´ç¼–å·è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥ã€‚" << endl;
 				system("pause");
 				goto ShowRoom;
 			}
 			system("cls");
 			cout << endl
 				<< endl
-				<< "                ¿Í·¿¹ÜÀíÏµÍ³" << endl
+				<< "                å®¢æˆ¿ç®¡ç†ç³»ç»Ÿ" << endl
 				<< endl
 				<< "      ----------------------------------" << endl
 				<< endl
-				<< "            ÒÑ¸üÐÂ¿Í·¿Óë¿ÍÈËÐÅÏ¢¡£" << endl;
+				<< "            å·²æ›´æ–°å®¢æˆ¿ä¸Žå®¢äººä¿¡æ¯ã€‚" << endl;
 			system("pause");
 			system("cls");
 			return;
 		}
 		p = p->next;
 	}
-	cout << "                 ÎÞ¸Ã¿ÍÈËÐÅÏ¢¡£";
+	cout << "                 æ— è¯¥å®¢äººä¿¡æ¯ã€‚";
 	system("pause");
 	system("cls");
 }

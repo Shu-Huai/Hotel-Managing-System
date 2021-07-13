@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "Room.h"
 #include "Customer.h"
 void Read(Room*& RoomList, Customer*& CustomerList);
