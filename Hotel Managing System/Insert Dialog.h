@@ -14,7 +14,7 @@ public slots:
 	void InsertRoom();
 	void InsertCustomer();
 private:
-	Ui::InsertDialog ui_;
+	Ui::InsertDialog *ui_;
 	InsertRoomDialog* insertRoomDialog_;
 	InsertCustomerDialog* insertCustomerDialog_;
 	CustomerList& customerList_;

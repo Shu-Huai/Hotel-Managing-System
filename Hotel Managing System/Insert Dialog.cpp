@@ -2,13 +2,15 @@
 InsertDialog::InsertDialog(CustomerList& customerList, RoomList& roomList, QWidget* parent)
 	: QDialog(parent), insertRoomDialog_(NULL), insertCustomerDialog_(NULL), customerList_(customerList), roomList_(roomList)
 {
-	ui_.setupUi(this);
-	connect(ui_.roomButton, SIGNAL(clicked()), this, SLOT(InsertRoom()));
-	connect(ui_.customerButton, SIGNAL(clicked()), this, SLOT(InsertCustomer()));
-	connect(ui_.returnButton, SIGNAL(clicked()), this, SLOT(close()));
+	ui_ = new Ui::InsertDialog;
+	ui_->setupUi(this);
+	connect(ui_->roomButton, SIGNAL(clicked()), this, SLOT(InsertRoom()));
+	connect(ui_->customerButton, SIGNAL(clicked()), this, SLOT(InsertCustomer()));
+	connect(ui_->returnButton, SIGNAL(clicked()), this, SLOT(close()));
 }
 InsertDialog::~InsertDialog()
 {
+	delete ui_;
 }
 void InsertDialog::InsertRoom()
 {

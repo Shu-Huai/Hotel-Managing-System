@@ -3,17 +3,19 @@
 #include <QMessageBox>
 InsertRoomDialog::InsertRoomDialog(RoomList& list, QWidget* parent) : QDialog(parent), list_(list)
 {
-	ui_.setupUi(this);
-	connect(ui_.confirmButton, SIGNAL(clicked()), this, SLOT(InsertRoom()));
-	connect(ui_.clearButton, SIGNAL(clicked()), this, SLOT(ClearEdit()));
-	connect(ui_.returnButton, SIGNAL(clicked()), this, SLOT(close()));
+	ui_ = new Ui::InsertRoomDialog;
+	ui_->setupUi(this);
+	connect(ui_->confirmButton, SIGNAL(clicked()), this, SLOT(InsertRoom()));
+	connect(ui_->clearButton, SIGNAL(clicked()), this, SLOT(ClearEdit()));
+	connect(ui_->returnButton, SIGNAL(clicked()), this, SLOT(close()));
 }
 InsertRoomDialog::~InsertRoomDialog()
 {
+	delete ui_;
 }
 void InsertRoomDialog::InsertRoom()
 {
-	if (ui_.numberEdit->text() == "" || ui_.typeEdit->text() == "" || ui_.priceEdit->text() == "")
+	if (ui_->numberEdit->text() == "" || ui_->typeEdit->text() == "" || ui_->priceEdit->text() == "")
 	{
 		QMessageBox box(QMessageBox::Critical, "错误", "空白的输入。");
 		box.setWindowIcon(QIcon(":/HotelManagingSystem/Error Icon.ico"));
@@ -23,7 +25,7 @@ void InsertRoomDialog::InsertRoom()
 		box.exec();
 		return;
 	}
-	int number = ui_.numberEdit->text().toInt();
+	int number = ui_->numberEdit->text().toInt();
 	if (list_.IsRoomExist(number))
 	{
 		QMessageBox box(QMessageBox::Critical, "错误", "房间已存在。");
@@ -32,11 +34,11 @@ void InsertRoomDialog::InsertRoom()
 		box.setFont(QFont("宋体", 12));
 		box.addButton("确定", QMessageBox::AcceptRole)->setFont(QFont("宋体", 12));
 		box.exec();
-		ui_.numberEdit->clear();
+		ui_->numberEdit->clear();
 		return;
 	}
-	QString type = ui_.typeEdit->text();
-	int price = ui_.priceEdit->text().toInt();
+	QString type = ui_->typeEdit->text();
+	int price = ui_->priceEdit->text().toInt();
 	list_.Insert(number, type, price, 0);
 	QFile roomFile("Room.txt");
 	roomFile.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append);
@@ -53,7 +55,7 @@ void InsertRoomDialog::InsertRoom()
 }
 void InsertRoomDialog::ClearEdit(bool isButtonPushed)
 {
-	if (ui_.numberEdit->text() != "" || ui_.typeEdit->text() != "" || ui_.priceEdit->text() != "")
+	if (ui_->numberEdit->text() != "" || ui_->typeEdit->text() != "" || ui_->priceEdit->text() != "")
 	{
 		if (isButtonPushed)
 		{
@@ -68,8 +70,8 @@ void InsertRoomDialog::ClearEdit(bool isButtonPushed)
 				return;
 			}
 		}
-		ui_.numberEdit->clear();
-		ui_.typeEdit->clear();
-		ui_.priceEdit->clear();
+		ui_->numberEdit->clear();
+		ui_->typeEdit->clear();
+		ui_->priceEdit->clear();
 	}
 }

@@ -12,6 +12,6 @@ public slots:
 	void InsertRoom();
 	void ClearEdit(bool isButtonPushed = true);
 private:
-	Ui::InsertRoomDialog ui_;
+	Ui::InsertRoomDialog *ui_;
 	RoomList &list_;
 };

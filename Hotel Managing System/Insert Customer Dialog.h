@@ -13,7 +13,7 @@ public slots:
 	void InsertCustomer();
 	void ClearEdit(bool isButtonPushed = true);
 private:
-	Ui::InsertCustomerDialog ui_;
+	Ui::InsertCustomerDialog *ui_;
 	CustomerList& customerList_;
 	RoomList& roomList_;
 };
