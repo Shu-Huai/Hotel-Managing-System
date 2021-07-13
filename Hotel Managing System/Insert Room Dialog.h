@@ -6,12 +6,11 @@ class InsertRoomDialog : public QDialog
 {
 	Q_OBJECT
 public:
-	friend class InsertDialog;
 	InsertRoomDialog(RoomList& list_, QWidget* parent = NULL);
 	~InsertRoomDialog();
 public slots:
 	void InsertRoom();
-	void ClearEdit(bool flag = true);
+	void ClearEdit(bool isButtonPushed = true);
 private:
 	Ui::InsertRoomDialog ui_;
 	RoomList &list_;

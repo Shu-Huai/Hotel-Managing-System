@@ -1,13 +1,14 @@
 ﻿#pragma once
-#include <QDialog>
-#include "ui_Insert Dialog.h"
+#include "Insert Customer Dialog.h"
 #include "Insert Room Dialog.h"
+#include "Customer List.h"
+#include "Room List.h"
+#include "ui_Insert Dialog.h"
 class InsertDialog : public QDialog
 {
-	friend class HotelManagingSystem;
 	Q_OBJECT
 public:
-	InsertDialog(RoomList& list, QWidget* parent = NULL);
+	InsertDialog(CustomerList& customerList_, RoomList& roomList_, QWidget* parent = NULL);
 	~InsertDialog();
 public slots:
 	void InsertRoom();
@@ -15,5 +16,7 @@ public slots:
 private:
 	Ui::InsertDialog ui_;
 	InsertRoomDialog* insertRoomDialog_;
-	RoomList& list_;
+	InsertCustomerDialog* insertCustomerDialog_;
+	CustomerList& customerList_;
+	RoomList& roomList_;
 };

@@ -2,8 +2,8 @@
 #include <QString>
 class Room
 {
-	friend class RoomList;
 public:
+	friend class RoomList;
 	Room(int number = 0, QString type = "", int price = 0, bool isFull = false, Room* next = NULL);
 private:
 	int number_;

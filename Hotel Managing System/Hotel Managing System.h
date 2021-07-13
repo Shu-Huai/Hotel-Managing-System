@@ -4,17 +4,18 @@
 #include <QTextStream>
 #include "ui_Hotel Managing System.h"
 #include "Insert Dialog.h"
-#include "Room List.h"
 class HotelManagingSystem : public QMainWindow
 {
 	Q_OBJECT
 public:
 	HotelManagingSystem(QWidget* parent = Q_NULLPTR);
+	~HotelManagingSystem();
 	void Exit();
 public slots:
 	void Insert();
 private:
-	Ui::HotelManagementClass ui_;
+	Ui::HotelManagementClass *ui_;
 	InsertDialog* insertDialog_;
-	RoomList list_;
+	RoomList roomList_;
+	CustomerList customerList_;
 };

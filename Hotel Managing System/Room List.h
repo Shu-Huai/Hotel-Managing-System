@@ -8,9 +8,9 @@ public:
 	void Clear();
 	int GetLength() const;
 	bool IsEmpty() const;
-	bool IsRoomExist(int number);
-	void GetRoom(int index, int& number, QString& type, int& price, bool& state) const;
-	void Insert(const int& number, const QString& type, const int& price, const bool& state);
+	bool IsRoomExist(int number) const;
+	void GetRoom(int index, int& number, QString& type, int& price, bool& isFull) const;
+	void Insert(const int& number, const QString& type, const int& price, const bool& isFull);
 	void DeleteRoom(int index);
 	RoomList& operator=(const RoomList& list_);
 private:

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>InsertRoomDialog</class>
- <widget class="QDialog" name="InsertRoomDialog">
+ <class>InsertCustomerDialog</class>
+ <widget class="QDialog" name="InsertCustomerDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -17,20 +17,32 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>InsertRoom</string>
+   <string>InsertCustomerDialog</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="1" column="1">
     <widget class="QWidget" name="centralWidget" native="true">
-     <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <property name="minimumSize">
+      <size>
+       <width>439</width>
+       <height>0</height>
+      </size>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QWidget" name="inputPanel" native="true">
-        <layout class="QVBoxLayout" name="verticalLayout_2">
+        <property name="minimumSize">
+         <size>
+          <width>322</width>
+          <height>0</height>
+         </size>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout">
          <item>
-          <widget class="QWidget" name="numberPanel" native="true">
-           <layout class="QHBoxLayout" name="horizontalLayout">
+          <widget class="QWidget" name="namePanel" native="true">
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
             <item>
-             <widget class="QLabel" name="numberLabel">
+             <widget class="QLabel" name="nameLabel">
               <property name="font">
                <font>
                 <family>宋体</family>
@@ -38,20 +50,17 @@
                </font>
               </property>
               <property name="text">
-               <string>房间号码：</string>
+               <string>姓名信息：</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="numberEdit">
+             <widget class="QLineEdit" name="nameEdit">
               <property name="font">
                <font>
                 <family>宋体</family>
                 <pointsize>12</pointsize>
                </font>
-              </property>
-              <property name="text">
-               <string/>
               </property>
              </widget>
             </item>
@@ -59,42 +68,10 @@
           </widget>
          </item>
          <item>
-          <widget class="QWidget" name="typePanel" native="true">
-           <layout class="QHBoxLayout" name="horizontalLayout_2">
-            <item>
-             <widget class="QLabel" name="typeLabel">
-              <property name="font">
-               <font>
-                <family>宋体</family>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>房间类型：</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="typeEdit">
-              <property name="font">
-               <font>
-                <family>宋体</family>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </item>
-         <item>
-          <widget class="QWidget" name="pricePanel" native="true">
+          <widget class="QWidget" name="IDPanel" native="true">
            <layout class="QHBoxLayout" name="horizontalLayout_3">
             <item>
-             <widget class="QLabel" name="priceLabel">
+             <widget class="QLabel" name="IDLabel">
               <property name="font">
                <font>
                 <family>宋体</family>
@@ -102,12 +79,34 @@
                </font>
               </property>
               <property name="text">
-               <string>房间价格：</string>
+               <string>证件信息：</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="priceEdit">
+             <widget class="QLineEdit" name="IDEdit">
+              <property name="font">
+               <font>
+                <family>宋体</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QWidget" name="roomPanel" native="true">
+           <property name="minimumSize">
+            <size>
+             <width>304</width>
+             <height>0</height>
+            </size>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <widget class="QLabel" name="roomLabel">
               <property name="font">
                <font>
                 <family>宋体</family>
@@ -115,7 +114,17 @@
                </font>
               </property>
               <property name="text">
-               <string/>
+               <string>入住信息：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="roomCombo">
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>0</height>
+               </size>
               </property>
              </widget>
             </item>
@@ -127,7 +136,7 @@
       </item>
       <item>
        <widget class="QWidget" name="buttonPanel" native="true">
-        <layout class="QVBoxLayout" name="verticalLayout">
+        <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
           <widget class="QPushButton" name="confirmButton">
            <property name="font">
@@ -155,7 +164,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="returnButton">
+          <widget class="QPushButton" name="returButton">
            <property name="font">
             <font>
              <family>宋体</family>
@@ -187,7 +196,7 @@
     </spacer>
    </item>
    <item row="1" column="0">
-    <spacer name="leftSpacer">
+    <spacer name="leftSpace">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>

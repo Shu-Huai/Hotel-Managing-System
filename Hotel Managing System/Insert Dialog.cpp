@@ -1,5 +1,6 @@
 ﻿#include "Insert Dialog.h"
-InsertDialog::InsertDialog(RoomList& list, QWidget* parent) : QDialog(parent), insertRoomDialog_(NULL), list_(list)
+InsertDialog::InsertDialog(CustomerList& customerList, RoomList& roomList, QWidget* parent)
+	: QDialog(parent), insertRoomDialog_(NULL), insertCustomerDialog_(NULL), customerList_(customerList), roomList_(roomList)
 {
 	ui_.setupUi(this);
 	connect(ui_.roomButton, SIGNAL(clicked()), this, SLOT(InsertRoom()));
@@ -11,11 +12,13 @@ InsertDialog::~InsertDialog()
 }
 void InsertDialog::InsertRoom()
 {
-	insertRoomDialog_ = new InsertRoomDialog(list_);
+	insertRoomDialog_ = new InsertRoomDialog(roomList_);
 	insertRoomDialog_->exec();
 	delete insertRoomDialog_;
 }
 void InsertDialog::InsertCustomer()
 {
-
+	insertCustomerDialog_ = new InsertCustomerDialog(customerList_, roomList_);
+	insertCustomerDialog_->exec();
+	delete insertCustomerDialog_;
 }
