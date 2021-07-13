@@ -90,6 +90,9 @@
     <ClInclude Include="Customer List.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Hotel_Managing_System.qrc" />
@@ -102,5 +105,11 @@
     <Text Include="Customer.txt">
       <Filter>Data Files</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Hotel Managing System.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Hotel Managing System Icon.ico" />
   </ItemGroup>
 </Project>

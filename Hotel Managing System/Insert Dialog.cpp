@@ -15,12 +15,16 @@ InsertDialog::~InsertDialog()
 void InsertDialog::InsertRoom()
 {
 	insertRoomDialog_ = new InsertRoomDialog(roomList_);
+	insertRoomDialog_->setWindowIcon(QIcon(":/HotelManagingSystem/Hotel Managing System Window Icon.ico"));
+	insertRoomDialog_->setWindowTitle("添加房间");
 	insertRoomDialog_->exec();
 	delete insertRoomDialog_;
 }
 void InsertDialog::InsertCustomer()
 {
 	insertCustomerDialog_ = new InsertCustomerDialog(customerList_, roomList_);
+	insertCustomerDialog_->setWindowIcon(QIcon(":/HotelManagingSystem/Hotel Managing System Window Icon.ico"));
+	insertCustomerDialog_->setWindowTitle("添加客人");
 	insertCustomerDialog_->exec();
 	delete insertCustomerDialog_;
 }

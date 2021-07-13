@@ -10,6 +10,8 @@ int main(int argc, char* argv[])
 		application.installTranslator(&translator);
 	}
 	HotelManagingSystem mainWindow;
+	mainWindow.setWindowIcon(QIcon(":/HotelManagingSystem/Hotel Managing System Window Icon.ico"));
+	mainWindow.setWindowTitle(QString("酒店管理系统"));
 	mainWindow.show();
 	int result = application.exec();
 	mainWindow.Exit();

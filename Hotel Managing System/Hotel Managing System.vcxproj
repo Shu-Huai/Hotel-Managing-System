@@ -124,6 +124,7 @@
     <QtMoc Include="Insert Customer Dialog.h" />
     <ClInclude Include="Customer List.h" />
     <ClInclude Include="Customer.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Room List.h" />
     <ClInclude Include="Room.h" />
   </ItemGroup>
@@ -134,6 +135,12 @@
   <ItemGroup>
     <Text Include="Customer.txt" />
     <Text Include="Room.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Hotel Managing System.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Hotel Managing System Icon.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

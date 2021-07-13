@@ -59,6 +59,8 @@ void HotelManagingSystem::Exit()
 void HotelManagingSystem::Insert()
 {
 	insertDialog_ = new InsertDialog(customerList_, roomList_);
+	insertDialog_->setWindowIcon(QIcon(":/HotelManagingSystem/Hotel Managing System Window Icon.ico"));
+	insertDialog_->setWindowTitle("插入");
 	insertDialog_->exec();
 	delete insertDialog_;
 }
