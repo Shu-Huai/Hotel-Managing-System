@@ -131,6 +131,10 @@
     <QtRcc Include="Hotel_Managing_System.qrc" />
     <QtRcc Include="Translator.qrc" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Customer.txt" />
+    <Text Include="Room.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
     <Import Project="$(QtMsBuild)\qt.targets" />

@@ -73,6 +73,9 @@
       <Extensions>ui</Extensions>
       <ParseFiles>true</ParseFiles>
     </Filter>
+    <Filter Include="Data Files">
+      <UniqueIdentifier>{cc97ceba-6a87-4db8-8ef3-b29680b64a92}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Room List.h">
@@ -91,5 +94,13 @@
   <ItemGroup>
     <QtRcc Include="Hotel_Managing_System.qrc" />
     <QtRcc Include="Translator.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Room.txt">
+      <Filter>Data Files</Filter>
+    </Text>
+    <Text Include="Customer.txt">
+      <Filter>Data Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

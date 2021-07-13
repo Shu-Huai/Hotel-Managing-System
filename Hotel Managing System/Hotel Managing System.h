@@ -16,6 +16,6 @@ public slots:
 private:
 	Ui::HotelManagementClass *ui_;
 	InsertDialog* insertDialog_;
-	RoomList roomList_;
 	CustomerList customerList_;
+	RoomList roomList_;
 };

@@ -1,8 +1,6 @@
 ﻿#include "Insert Room Dialog.h"
-#include <QDebug>
 #include <QFile>
 #include <QMessageBox>
-#include <QString>
 InsertRoomDialog::InsertRoomDialog(RoomList& list, QWidget* parent) : QDialog(parent), list_(list)
 {
 	ui_.setupUi(this);
@@ -40,11 +38,11 @@ void InsertRoomDialog::InsertRoom()
 	QString type = ui_.typeEdit->text();
 	int price = ui_.priceEdit->text().toInt();
 	list_.Insert(number, type, price, 0);
-	QFile RoomFile("Room.txt");
-	RoomFile.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append);
-	QTextStream out(&RoomFile);
+	QFile roomFile("Room.txt");
+	roomFile.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append);
+	QTextStream out(&roomFile);
 	out << '\n' << number << " " << type << " " << price << " " << 0 ;
-	RoomFile.close();
+	roomFile.close();
 	QMessageBox box(QMessageBox::Information, "成功", "操作成功。");
 	box.setWindowIcon(QIcon(":/HotelManagingSystem/Information Icon.ico"));
 	box.setIconPixmap(QPixmap(":/HotelManagingSystem/Information Icon.ico").scaled(32, 32));

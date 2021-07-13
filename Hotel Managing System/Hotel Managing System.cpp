@@ -5,19 +5,32 @@ HotelManagingSystem::HotelManagingSystem(QWidget* parent) : QMainWindow(parent),
 	ui_->setupUi(this);
 	connect(ui_->insertButton, SIGNAL(clicked()), this, SLOT(Insert()));
 	connect(ui_->exitButton, SIGNAL(clicked()), this, SLOT(close()));
-	QFile RoomFile("Room.txt");
-	RoomFile.open(QIODevice::ReadOnly | QIODevice::Text);
-	QTextStream inp(&RoomFile);
-	while (!inp.atEnd())
+	QFile roomFile("Room.txt");
+	roomFile.open(QIODevice::ReadWrite | QIODevice::Text);
+	QTextStream roomIn(&roomFile);
+	while (!roomIn.atEnd())
 	{
 		int number = 0;
 		QString type = "";
 		int price = 0;
 		int state = 0;
-		inp >> number >> type >> price >> state;
+		roomIn >> number >> type >> price >> state;
 		roomList_.Insert(number, type, price, bool(state));
 	}
-	RoomFile.close();
+	roomFile.close();
+	QFile customerFile("Customer.txt");
+	customerFile.open(QIODevice::ReadWrite | QIODevice::Text);
+	QTextStream customerIn(&customerFile);
+	while (!customerIn.atEnd())
+	{
+		QString name = "";
+		QString ID = "";
+		int roomNumber = 0;
+		customerIn >> name >> ID >> roomNumber;
+		customerList_.Insert(name, ID, roomNumber);
+		roomList_.SetFull(roomNumber);
+	}
+	customerFile.close();
 }
 HotelManagingSystem::~HotelManagingSystem()
 {
