@@ -1,204 +1,30 @@
-﻿#pragma warning(disable:4996)
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <conio.h>
-#include "Customer.h"
-#include "File.h"
-#include "Room.h"
-using namespace std;
-void IllegalChar()
+﻿#include "Hotel Managing System.h"
+HotelManagingSystem::HotelManagingSystem(QWidget* parent)
+	: QMainWindow(parent)
 {
-	cout << endl
-		<< endl
-		<< "                客房管理系统" << endl
-		<< endl
-		<< "      ----------------------------------" << endl
-		<< endl
-		<< "                  非法字符。" << endl;
-	system("pause");
-	system("cls");
-}
-void Insert(Room*& RoomList, Customer*& CustomerList)
-{
-	cout << endl
-		<< endl
-		<< "                客房管理系统" << endl
-		<< endl
-		<< "      ----------------------------------" << endl
-		<< endl
-		<< "               1.录入客房信息" << endl
-		<< endl
-		<< "               2.录入客人信息" << endl
-		<< endl
-		<< "               3.返回上层菜单" << endl
-		<< "请选择：";
-	char ChooseFunction;
-	ChooseFunction = getch();
-	system("cls");
-	switch (ChooseFunction)
+	ui_.setupUi(this);
+	connect(ui_.insertButton, SIGNAL(clicked()), this, SLOT(Insert()));
+	connect(ui_.exitButton, SIGNAL(clicked()), this, SLOT(close()));
+	QFile RoomFile("Room.txt");
+	RoomFile.open(QIODevice::ReadOnly | QIODevice::Text);
+	QTextStream inp(&RoomFile);
+	while (!inp.atEnd())
 	{
-	case '1':
-		InsertRoom(RoomList);
-		break;
-	case '2':
-		InsertCustomer(RoomList, CustomerList);
-		break;
-	case '3':
-		return;
-		break;
-	default:
-		IllegalChar();
-		Insert(RoomList, CustomerList);
-		return;
+		int number = 0;
+		QString type = "";
+		int price = 0;
+		int state = 0;
+		inp >> number >> type >> price >> state;
+		list_.Insert(number, type, price, state);
 	}
-	Insert(RoomList, CustomerList);
-	return;
-}
-void Search(Room*& RoomList, Customer*& CustomerList)
-{
-	cout << endl
-		<< endl
-		<< "                客房管理系统" << endl
-		<< endl
-		<< "      ----------------------------------" << endl
-		<< endl
-		<< "               1.按类型查询客房信息" << endl
-		<< endl
-		<< "               2.按价格查询客房信息" << endl
-		<< endl
-		<< "               3.查询客人信息" << endl
-		<< endl
-		<< "               4.查询所有客人信息" << endl
-		<< endl
-		<< "               5.返回上层菜单" << endl
-		<< endl
-		<< "  请选择：";
-	char ChooseFunction;
-	ChooseFunction = getch();
-	system("cls");
-	switch (ChooseFunction)
-	{
-	case '1':
-		SearchByType(RoomList);
-		break;
-	case '2':
-		SearchByPrice(RoomList);
-		break;
-	case '3':
-		SearchCustomer(CustomerList);
-		break;
-	case '4':
-		ShowCustomer(CustomerList);
-		break;
-	case '5':
-		return;
-		break;
-	default:
-		IllegalChar();
-	}
-	Search(RoomList, CustomerList);
-	return;
-}
-void Change(Room*& RoomList, Customer*& CustomerList)
-{
-	cout << endl
-		<< endl
-		<< "                客房管理系统" << endl
-		<< endl
-		<< "      ----------------------------------" << endl
-		<< endl
-		<< "               1.修改客房信息" << endl
-		<< endl
-		<< "               2.修改客人信息" << endl
-		<< endl
-		<< "               3.返回上层菜单" << endl
-		<< endl
-		<< "  请选择：";
-	char ChooseFunction;
-	ChooseFunction = getch();
-	system("cls");
-	switch (ChooseFunction)
-	{
-	case '1':
-		ChangeRoom(RoomList);
-		break;
-	case '2':
-		ChangeCustomer(RoomList, CustomerList);
-		break;
-	case '3':
-		return;
-		break;
-	default:
-		IllegalChar();
-	}
-	Change(RoomList, CustomerList);
-	return;
-}
-int main()
-{
-	system("color F0");
-	Room* RoomList = NULL;
-	Customer* CustomerList = NULL;
-	ifstream RoomFile("Room.txt");
-	ifstream CustomerFile("Customer.txt");
-	if (!RoomFile.is_open())
-	{
-		ofstream fileout2("Room.txt", ios::trunc);
-	}
-	if (!CustomerFile.is_open())
-	{
-		ofstream fileout("Customer.txt", ios::trunc);
-	}
+	list_.DeleteRoom();
 	RoomFile.close();
-	CustomerFile.close();
-	system("cls");
-	Read(RoomList, CustomerList);
-	while (1)
-	{
-		cout << endl
-			<< endl
-			<< "                客房管理系统             " << endl
-			<< endl
-			<< "      ----------------------------------" << endl
-			<< endl
-			<< "               1.录入" << endl
-			<< endl
-			<< "               2.查询" << endl
-			<< endl
-			<< "               3.退房" << endl
-			<< endl
-			<< "               4.修改" << endl
-			<< endl
-			<< "               5.退出系统" << endl
-			<< endl;
-		cout << "请选择：";
-		char ChooseFunction = 0;
-		ChooseFunction = getch();
-		system("cls");
-		switch (ChooseFunction)
-		{
-		case '1':
-			Insert(RoomList, CustomerList);
-			break;
-		case '2':
-			Search(RoomList, CustomerList);
-			break;
-		case '3':
-			CheckOut(RoomList, CustomerList);
-			break;
-		case '4':
-			Change(RoomList, CustomerList);
-			break;
-		case '5':
-			Save(RoomList, CustomerList);
-			exit(0);
-		case '\n':
-			continue;
-			break;
-		default:
-			IllegalChar();
-		}
-	}
-	return 0;
+}
+void HotelManagingSystem::Insert()
+{
+	insertDialog_ = new InsertDialog;
+	insertDialog_->list_ = list_;
+	insertDialog_->exec();
+	list_ = insertDialog_->list_;
+	delete insertDialog_;
 }

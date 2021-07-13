@@ -1,15 +1,14 @@
-﻿#pragma once
-#include <iostream>
-using namespace std;
-struct Room
+#pragma once
+#include <QString>
+class Room
 {
-	string Number;
-	string Type;
-	int Price = 0;
-	bool State = 0;
-	Room* next = NULL;
+	friend class RoomList;
+public:
+	Room(int number = 0, QString type = "", int price = 0, bool isFull = false, Room* next = NULL);
+private:
+	int number_;
+	QString type_;
+	int price_;
+	bool isFull_;
+	Room* next_;
 };
-void InsertRoom(Room*& RoomList);
-void SearchByType(Room*& RoomList);
-void SearchByPrice(Room*& RoomList);
-void ChangeRoom(Room*& RoomList);
