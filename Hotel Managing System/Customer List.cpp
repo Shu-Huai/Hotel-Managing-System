@@ -57,6 +57,19 @@ void CustomerList::GetCustomer(int index, QString& name, QString& ID, int& roomN
 	ID = p->ID_;
 	roomNumber = p->roomNumber_;
 }
+int CustomerList::GetCustomerRoomNumber(int index) const
+{
+	if (index < 0 || index >= length_)
+	{
+		throw std::string("范围错误。");
+	}
+	Customer* p = head_->next_;
+	for (int j = 0; j < index; j++)
+	{
+		p = p->next_;
+	}
+	return p->roomNumber_;
+}
 void CustomerList::Insert(const QString& name, const QString& ID, int roomNumber)
 {
 	Customer* p = head_;

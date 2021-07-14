@@ -78,6 +78,19 @@ void RoomList::SetFull(int number)
 	}
 	p->isFull_ = true;
 }
+void RoomList::CheckOut(int number)
+{
+	Room* p = head_->next_;
+	while (p && p->number_ != number)
+	{
+		p = p->next_;
+	}
+	if (!p)
+	{
+		throw std::string("房间不存在。");
+	}
+	p->isFull_ = false;
+}
 int RoomList::GetLength() const
 {
 	return length_;

@@ -24,36 +24,37 @@ DeleteRoomDialog::DeleteRoomDialog(RoomList& list, QWidget* parent) : QDialog(pa
 		itemText.append(isFull ? " 满" : " 空");
 		QListWidgetItem* item = new QListWidgetItem;
 		QCheckBox* checkBox = new QCheckBox();
-		ui_->roomListWidget->addItem(item);
-		ui_->roomListWidget->setItemWidget(item, checkBox);
+		ui_->roomList->addItem(item);
+		ui_->roomList->setItemWidget(item, checkBox);
 		checkBox->setText(itemText);
 		checkBox->setDisabled(isFull);
 	}
 }
 DeleteRoomDialog::~DeleteRoomDialog()
 {
+	ui_->roomList->clear();
 	delete ui_;
 }
 void DeleteRoomDialog::DeleteRoom()
 {
-	for (int i = 0; i < ui_->roomListWidget->count(); i++)
+	for (int i = 0; i < ui_->roomList->count(); i++)
 	{
-		QListWidgetItem* item = ui_->roomListWidget->item(i);
-		QCheckBox* checkBox = static_cast<QCheckBox*>(ui_->roomListWidget->itemWidget(item));
+		QListWidgetItem* item = ui_->roomList->item(i);
+		QCheckBox* checkBox = static_cast<QCheckBox*>(ui_->roomList->itemWidget(item));
 		if (checkBox->isChecked())
 		{
 			list_.DeleteRoom(i);
-			delete ui_->roomListWidget->takeItem(i);
+			delete ui_->roomList->takeItem(i);
 			i--;
 		}
 	}
 }
 void DeleteRoomDialog::SelectAll()
 {
-	for (int i = 0; i < ui_->roomListWidget->count(); i++)
+	for (int i = 0; i < ui_->roomList->count(); i++)
 	{
-		QListWidgetItem* item = ui_->roomListWidget->item(i);
-		QCheckBox* checkBox = static_cast<QCheckBox*>(ui_->roomListWidget->itemWidget(item));
+		QListWidgetItem* item = ui_->roomList->item(i);
+		QCheckBox* checkBox = static_cast<QCheckBox*>(ui_->roomList->itemWidget(item));
 		if (checkBox->isEnabled())
 		{
 			checkBox->setChecked(true);
@@ -62,19 +63,19 @@ void DeleteRoomDialog::SelectAll()
 }
 void DeleteRoomDialog::SelectNone()
 {
-	for (int i = 0; i < ui_->roomListWidget->count(); i++)
+	for (int i = 0; i < ui_->roomList->count(); i++)
 	{
-		QListWidgetItem* item = ui_->roomListWidget->item(i);
-		QCheckBox* checkBox = static_cast<QCheckBox*>(ui_->roomListWidget->itemWidget(item));
+		QListWidgetItem* item = ui_->roomList->item(i);
+		QCheckBox* checkBox = static_cast<QCheckBox*>(ui_->roomList->itemWidget(item));
 		checkBox->setChecked(false);
 	}
 }
 void DeleteRoomDialog::SelectReverse()
 {
-	for (int i = 0; i < ui_->roomListWidget->count(); i++)
+	for (int i = 0; i < ui_->roomList->count(); i++)
 	{
-		QListWidgetItem* item = ui_->roomListWidget->item(i);
-		QCheckBox* checkBox = static_cast<QCheckBox*>(ui_->roomListWidget->itemWidget(item));
+		QListWidgetItem* item = ui_->roomList->item(i);
+		QCheckBox* checkBox = static_cast<QCheckBox*>(ui_->roomList->itemWidget(item));
 		if (checkBox->isEnabled())
 		{
 			checkBox->setChecked(!checkBox->isChecked());

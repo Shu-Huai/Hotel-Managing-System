@@ -8,8 +8,9 @@ public:
 	void Clear();
 	int GetLength() const;
 	bool IsEmpty() const;
-	bool IsCustomerExist(const QString& ID)const;
+	bool IsCustomerExist(const QString& ID) const;
 	void GetCustomer(int index, QString& name, QString& ID, int& roomNumber) const;
+	int GetCustomerRoomNumber(int index) const;
 	void Insert(const QString& name, const QString& ID, int roomNumber);
 	void DeleteCustomer(int index);
 	CustomerList& operator=(const CustomerList& list_);

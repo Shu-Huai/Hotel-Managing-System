@@ -11,6 +11,7 @@ public:
 	void Insert(const int& number, const QString& type, const int& price, const bool& isFull);
 	void DeleteRoom(int index);
 	void SetFull(int number);
+	void CheckOut(int number);
 	int GetLength() const;
 	void GetRoom(int index, int& number, QString& type, int& price, bool& isFull) const;
 	RoomList& operator=(const RoomList& list_);

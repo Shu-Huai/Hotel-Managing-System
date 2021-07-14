@@ -5,6 +5,7 @@
 #include "ui_Hotel Managing System.h"
 #include "Insert Dialog.h"
 #include "Delete Room Dialog.h"
+#include "Check Out Dialog.h"
 class HotelManagingSystem : public QMainWindow
 {
 	Q_OBJECT
@@ -15,10 +16,12 @@ public:
 public slots:
 	void Insert();
 	void DeleteRoom();
+	void CheckOut();
 private:
 	Ui::HotelManagementClass *ui_;
 	InsertDialog* insertDialog_;
 	DeleteRoomDialog* deleteRoomDialog_;
+	CheckOutDialog* checkOutDialog_;
 	CustomerList customerList_;
 	RoomList roomList_;
 };

@@ -1,11 +1,12 @@
 ﻿#include "Hotel Managing System.h"
-HotelManagingSystem::HotelManagingSystem(QWidget* parent) : QMainWindow(parent), insertDialog_(NULL), deleteRoomDialog_(NULL)
+HotelManagingSystem::HotelManagingSystem(QWidget* parent) : QMainWindow(parent), insertDialog_(NULL), deleteRoomDialog_(NULL), checkOutDialog_(NULL)
 {
 	ui_ = new Ui::HotelManagementClass;
 	ui_->setupUi(this);
 	connect(ui_->insertButton, SIGNAL(clicked()), this, SLOT(Insert()));
 	connect(ui_->exitButton, SIGNAL(clicked()), this, SLOT(close()));
 	connect(ui_->deleteRoomButton, SIGNAL(clicked()), this, SLOT(DeleteRoom()));
+	connect(ui_->checkOutButton, SIGNAL(clicked()), this, SLOT(CheckOut()));
 	QFile roomFile("Room.txt");
 	roomFile.open(QIODevice::ReadWrite | QIODevice::Text);
 	QTextStream roomIn(&roomFile);
@@ -39,9 +40,9 @@ HotelManagingSystem::~HotelManagingSystem()
 }
 void HotelManagingSystem::Exit()
 {
-	QFile RoomFile("Room.txt");
-	RoomFile.open(QIODevice::WriteOnly | QIODevice::Text);
-	QTextStream out(&RoomFile);
+	QFile roomFile("Room.txt");
+	roomFile.open(QIODevice::WriteOnly | QIODevice::Text);
+	QTextStream roomOut(&roomFile);
 	for (int i = 0; i < roomList_.GetLength(); i++)
 	{
 		int number = 0;
@@ -49,13 +50,30 @@ void HotelManagingSystem::Exit()
 		int price = 0;
 		bool isFull = false;
 		roomList_.GetRoom(i, number, type, price, isFull);
-		out << number << " " << type << " " << price << " " << isFull;
+		roomOut << number << " " << type << " " << price << " " << isFull;
 		if (i != roomList_.GetLength() - 1)
 		{
-			out << '\n';
+			roomOut << '\n';
 		}
 	}
-	RoomFile.close();
+	roomFile.close();
+
+	QFile customerFile("Customer.txt");
+	customerFile.open(QIODevice::WriteOnly | QIODevice::Text);
+	QTextStream customerOut(&customerFile);
+	for (int i = 0; i < customerList_.GetLength(); i++)
+	{
+		QString name = "";
+		QString ID = "";
+		int number = 0;
+		customerList_.GetCustomer(i, name, ID, number);
+		customerOut << name << " " << ID << " " << number;
+		if (i != customerList_.GetLength() - 1)
+		{
+			customerOut << '\n';
+		}
+	}
+	customerFile.close();
 }
 void HotelManagingSystem::Insert()
 {
@@ -72,4 +90,12 @@ void HotelManagingSystem::DeleteRoom()
 	deleteRoomDialog_->setWindowTitle("删房");
 	deleteRoomDialog_->exec();
 	delete deleteRoomDialog_;
+}
+void HotelManagingSystem::CheckOut()
+{
+	checkOutDialog_ = new CheckOutDialog(customerList_, roomList_);
+	checkOutDialog_->setWindowIcon(QIcon(":/HotelManagingSystem/Hotel Managing System Window Icon.ico"));
+	checkOutDialog_->setWindowTitle("退房");
+	checkOutDialog_->exec();
+	delete checkOutDialog_;
 }

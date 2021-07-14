@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>DeleteRoomDialog</class>
- <widget class="QDialog" name="DeleteRoomDialog">
+ <class>CheckOutDialog</class>
+ <widget class="QDialog" name="CheckOutDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -17,7 +17,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>DeleteRoomDialog</string>
+   <string>CheckOutDialog</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -27,20 +27,7 @@
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="0" column="2">
-    <spacer name="rightSpacer">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
+       <width>21</width>
        <height>20</height>
       </size>
      </property>
@@ -107,7 +94,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QListWidget" name="roomList">
+          <widget class="QListWidget" name="customerList">
            <property name="font">
             <font>
              <family>宋体</family>
@@ -123,7 +110,7 @@
        <widget class="QWidget" name="buttonPanel" native="true">
         <layout class="QVBoxLayout" name="verticalLayout">
          <item>
-          <spacer name="verticalSpacer">
+          <spacer name="upSpacer">
            <property name="orientation">
             <enum>Qt::Vertical</enum>
            </property>
@@ -139,7 +126,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="deleteButton">
+          <widget class="QPushButton" name="checkOutButton">
            <property name="font">
             <font>
              <family>宋体</family>
@@ -147,7 +134,7 @@
             </font>
            </property>
            <property name="text">
-            <string>删除</string>
+            <string>退房</string>
            </property>
            <property name="autoDefault">
             <bool>false</bool>
@@ -178,6 +165,19 @@
       </item>
      </layout>
     </widget>
+   </item>
+   <item row="0" column="2">
+    <spacer name="rightSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>22</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
    </item>
   </layout>
  </widget>

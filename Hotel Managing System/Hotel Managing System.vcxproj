@@ -97,6 +97,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Check Out Dialog.cpp" />
     <ClCompile Include="Customer List.cpp" />
     <ClCompile Include="Customer.cpp" />
     <ClCompile Include="Delete Room Dialog.cpp" />
@@ -107,6 +108,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Room List.cpp" />
     <ClCompile Include="Room.cpp" />
+    <QtUic Include="Check Out Dialog.ui" />
     <QtUic Include="Delete Room Dialog.ui" />
     <QtUic Include="Hotel Managing System.ui" />
     <QtUic Include="Insert Customer Dialog.ui" />
@@ -124,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Insert Customer Dialog.h" />
+    <QtMoc Include="Check Out Dialog.h" />
     <ClInclude Include="Customer List.h" />
     <ClInclude Include="Customer.h" />
     <QtMoc Include="Delete Room Dialog.h" />
