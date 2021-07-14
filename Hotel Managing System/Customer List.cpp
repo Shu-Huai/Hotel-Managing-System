@@ -163,43 +163,12 @@ CustomerList& CustomerList::SearchCustomer(QString& name, QString& ID, int roomN
 	Customer* p = head_->next_;
 	while (p)
 	{
-		QString tempName = "";
-		QString tempID = "";
-		QString tempRoom = "";
-		QString tempDay = "";
-		if (name == "")
-		{
-			tempName = p->name_;
-		}
-		else
-		{
-			tempName = name;
-		}
-		if (ID == "")
-		{
-			tempID = p->ID_;
-		}
-		else
-		{
-			tempID = ID;
-		}
-		if (roomNumber == -1)
-		{
-			tempRoom = QString("%1").arg(p->roomNumber_);
-		}
-		else
-		{
-			tempRoom = QString("%1").arg(roomNumber);
-		}
-		if (day == -1)
-		{
-			tempDay = QString("%1").arg(p->day_);
-		}
-		else
-		{
-			tempDay = QString("%1").arg(day);
-		}
-		if (p->name_.contains(tempName) && p->ID_.contains(tempID) && QString("%1").arg(p->roomNumber_).contains(tempRoom) && QString("%1").arg(p->day_).contains(tempDay))
+		QString tempName = name == "" ? p->name_ : name;
+		QString tempID = ID == "" ? p->ID_ : ID;
+		QString tempRoom = QString("%1").arg(roomNumber == -1 ? p->roomNumber_ : roomNumber);
+		QString tempDay = QString("%1").arg(day == -1 ? p->day_ : day);
+		if (p->name_.startsWith(tempName) && p->ID_.startsWith(tempID) &&
+			QString("%1").arg(p->roomNumber_).startsWith(tempRoom) && QString("%1").arg(p->day_).startsWith(tempDay))
 		{
 			list->InsertCustomer(p->name_, p->ID_, p->roomNumber_, p->day_);
 		}

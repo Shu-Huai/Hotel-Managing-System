@@ -11,7 +11,7 @@ public:
 	~InsertCustomerDialog();
 public slots:
 	void InsertCustomer();
-	void ClearEdit(bool isButtonPushed = true);
+	void ClearEditor(bool isButtonPushed = true);
 private:
 	Ui::InsertCustomerDialog *ui_;
 	CustomerList& customerList_;

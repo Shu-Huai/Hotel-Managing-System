@@ -6,7 +6,7 @@ InsertRoomDialog::InsertRoomDialog(RoomList& list, QWidget* parent) : QDialog(pa
 	ui_ = new Ui::InsertRoomDialog;
 	ui_->setupUi(this);
 	connect(ui_->confirmButton, SIGNAL(clicked()), this, SLOT(InsertRoom()));
-	connect(ui_->clearButton, SIGNAL(clicked()), this, SLOT(ClearEdit()));
+	connect(ui_->clearButton, SIGNAL(clicked()), this, SLOT(ClearEditor()));
 	connect(ui_->returnButton, SIGNAL(clicked()), this, SLOT(close()));
 }
 InsertRoomDialog::~InsertRoomDialog()
@@ -51,9 +51,9 @@ void InsertRoomDialog::InsertRoom()
 	box.setFont(QFont("宋体", 12));
 	box.addButton("确定", QMessageBox::AcceptRole)->setFont(QFont("宋体", 12));
 	box.exec();
-	ClearEdit(false);
+	ClearEditor(false);
 }
-void InsertRoomDialog::ClearEdit(bool isButtonPushed)
+void InsertRoomDialog::ClearEditor(bool isButtonPushed)
 {
 	if (ui_->numberEdit->text() != "" || ui_->typeEdit->text() != "" || ui_->priceEdit->text() != "")
 	{

@@ -16,7 +16,12 @@ public:
 	int GetLength() const;
 	int GetIndex(int number) const;
 	void GetRoom(int index, int& number, QString& type, int& price, bool& isFull) const;
-	int GetRoomPrice(int number) const;
+	int GetRoomPriceByNumber(int number) const;
+	int GetRoomNumber(int index) const;
+	QString GetRoomType(int index) const;
+	int GetRoomPrice(int index) const;
+	bool GetRoomState(int index) const;
+	RoomList& SearchRoom(int number, const QString& type, int price, int isFull);
 	RoomList& operator=(const RoomList& list_);
 private:
 	Room* head_;

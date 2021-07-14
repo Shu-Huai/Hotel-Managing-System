@@ -10,6 +10,7 @@ public:
 	~SearchCustomerDialog();
 public slots:
 	void SearchCustomer(QString text);
+	void ClearEditor();
 private:
 	Ui::SearchCustomerDialog* ui_;
 	CustomerList& list_;

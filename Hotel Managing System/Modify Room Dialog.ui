@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>ModifyRoomDialog</class>
  <widget class="QDialog" name="ModifyRoomDialog">
@@ -196,6 +196,9 @@
            <property name="text">
             <string>修改</string>
            </property>
+           <property name="autoDefault">
+            <bool>false</bool>
+           </property>
           </widget>
          </item>
          <item>
@@ -208,6 +211,9 @@
            </property>
            <property name="text">
             <string>返回</string>
+           </property>
+           <property name="autoDefault">
+            <bool>false</bool>
            </property>
           </widget>
          </item>

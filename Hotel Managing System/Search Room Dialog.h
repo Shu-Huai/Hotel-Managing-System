@@ -8,7 +8,10 @@ class SearchRoomDialog : public QDialog
 public:
 	SearchRoomDialog(RoomList& list, QWidget* parent = NULL);
 	~SearchRoomDialog();
-private:
+public slots:
+	void SearchRoom(QString text);
+	void ClearEditor();
+	private:
 	Ui::SearchRoomDialog* ui_;
 	RoomList& list_;
 };

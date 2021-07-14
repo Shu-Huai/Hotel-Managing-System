@@ -6,7 +6,7 @@ InsertCustomerDialog::InsertCustomerDialog(CustomerList& customerList, RoomList&
 	ui_ = new Ui::InsertCustomerDialog;
 	ui_->setupUi(this);
 	connect(ui_->confirmButton, SIGNAL(clicked()), this, SLOT(InsertCustomer()));
-	connect(ui_->clearButton, SIGNAL(clicked()), this, SLOT(ClearEdit()));
+	connect(ui_->clearButton, SIGNAL(clicked()), this, SLOT(ClearEditor()));
 	connect(ui_->returButton, SIGNAL(clicked()), this, SLOT(close()));
 	for (int i = 0; i < roomList_.GetLength(); i++)
 	{
@@ -71,9 +71,9 @@ void InsertCustomerDialog::InsertCustomer()
 	box.setFont(QFont("宋体", 12));
 	box.addButton("确定", QMessageBox::AcceptRole)->setFont(QFont("宋体", 12));
 	box.exec();
-	ClearEdit(false);
+	ClearEditor(false);
 }
-void InsertCustomerDialog::ClearEdit(bool isButtonPushed)
+void InsertCustomerDialog::ClearEditor(bool isButtonPushed)
 {
 	if (ui_->nameEdit->text() != "" || ui_->IDEdit->text() != "" || ui_->roomCombo->currentText() != "" || ui_->dayEdit->text() != "")
 	{

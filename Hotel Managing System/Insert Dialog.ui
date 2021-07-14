@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>InsertDialog</class>
  <widget class="QDialog" name="InsertDialog">
@@ -66,6 +66,9 @@
         <property name="text">
          <string>添加房间</string>
         </property>
+        <property name="autoDefault">
+         <bool>false</bool>
+        </property>
        </widget>
       </item>
       <item>
@@ -79,6 +82,9 @@
         <property name="text">
          <string>添加客人</string>
         </property>
+        <property name="autoDefault">
+         <bool>false</bool>
+        </property>
        </widget>
       </item>
       <item>
@@ -91,6 +97,9 @@
         </property>
         <property name="text">
          <string>返回</string>
+        </property>
+        <property name="autoDefault">
+         <bool>false</bool>
         </property>
        </widget>
       </item>

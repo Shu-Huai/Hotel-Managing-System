@@ -50,7 +50,7 @@ void CheckOutDialog::CheckOut()
 			int roomNumber = customerList_.GetCustomerRoomNumber(i);
 			int day = customerList_.GetCustomerDay(i);
 			customerList_.DeleteCustomer(i);
-			int roomPrice = roomList_.GetRoomPrice(roomNumber);
+			int roomPrice = roomList_.GetRoomPriceByNumber(roomNumber);
 			roomList_.CheckOut(roomNumber);
 			int price = day * roomPrice;
 			QMessageBox box(QMessageBox::Information, "成功", QString("%1需支付%2。").arg(name).arg(price));
