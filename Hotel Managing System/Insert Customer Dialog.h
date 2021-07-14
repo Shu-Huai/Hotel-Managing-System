@@ -7,7 +7,7 @@ class InsertCustomerDialog : public QDialog
 {
 	Q_OBJECT
 public:
-	InsertCustomerDialog(CustomerList& customerList, RoomList& roomList, QWidget* parent = Q_NULLPTR);
+	InsertCustomerDialog(CustomerList& customerList, RoomList& roomList, QWidget* parent = NULL);
 	~InsertCustomerDialog();
 public slots:
 	void InsertCustomer();

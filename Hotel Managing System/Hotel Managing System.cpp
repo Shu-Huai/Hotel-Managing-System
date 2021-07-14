@@ -1,10 +1,11 @@
 ﻿#include "Hotel Managing System.h"
-HotelManagingSystem::HotelManagingSystem(QWidget* parent) : QMainWindow(parent), insertDialog_(NULL)
+HotelManagingSystem::HotelManagingSystem(QWidget* parent) : QMainWindow(parent), insertDialog_(NULL), deleteRoomDialog_(NULL)
 {
 	ui_ = new Ui::HotelManagementClass;
 	ui_->setupUi(this);
 	connect(ui_->insertButton, SIGNAL(clicked()), this, SLOT(Insert()));
 	connect(ui_->exitButton, SIGNAL(clicked()), this, SLOT(close()));
+	connect(ui_->deleteRoomButton, SIGNAL(clicked()), this, SLOT(DeleteRoom()));
 	QFile roomFile("Room.txt");
 	roomFile.open(QIODevice::ReadWrite | QIODevice::Text);
 	QTextStream roomIn(&roomFile);
@@ -63,4 +64,12 @@ void HotelManagingSystem::Insert()
 	insertDialog_->setWindowTitle("插入");
 	insertDialog_->exec();
 	delete insertDialog_;
+}
+void HotelManagingSystem::DeleteRoom()
+{
+	deleteRoomDialog_ = new DeleteRoomDialog(roomList_);
+	deleteRoomDialog_->setWindowIcon(QIcon(":/HotelManagingSystem/Hotel Managing System Window Icon.ico"));
+	deleteRoomDialog_->setWindowTitle("删房");
+	deleteRoomDialog_->exec();
+	delete deleteRoomDialog_;
 }

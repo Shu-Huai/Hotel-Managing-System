@@ -28,6 +28,9 @@
     <ClCompile Include="Customer List.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Delete Room Dialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Insert Dialog.h">
@@ -42,6 +45,9 @@
     <QtMoc Include="Insert Customer Dialog.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="Delete Room Dialog.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Insert Dialog.ui">
@@ -54,6 +60,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="Insert Customer Dialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Delete Room Dialog.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

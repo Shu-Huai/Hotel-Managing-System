@@ -126,6 +126,12 @@
                 <height>0</height>
                </size>
               </property>
+              <property name="font">
+               <font>
+                <family>宋体</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
              </widget>
             </item>
            </layout>
