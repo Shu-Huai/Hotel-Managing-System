@@ -34,6 +34,15 @@
     <ClCompile Include="Check Out Dialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Modify Dialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Modify Customer Dialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Modify Room Dialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Insert Dialog.h">
@@ -54,6 +63,15 @@
     <QtMoc Include="Check Out Dialog.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="Modify Dialog.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Modify Customer Dialog.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Modify Room Dialog.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Insert Dialog.ui">
@@ -72,6 +90,15 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="Check Out Dialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Modify Dialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Modify Customer Dialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Modify Room Dialog.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

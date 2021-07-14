@@ -21,10 +21,6 @@ void CustomerList::Clear()
 	}
 	length_ = 0;
 }
-int CustomerList::GetLength() const
-{
-	return length_;
-}
 bool CustomerList::IsEmpty() const
 {
 	return head_->next_ == NULL;
@@ -41,6 +37,53 @@ bool CustomerList::IsCustomerExist(const QString& ID) const
 		p = p->next_;
 	}
 	return false;
+}
+void CustomerList::InsertCustomer(const QString& name, const QString& ID, int roomNumber, int day)
+{
+	Customer* p = head_;
+	while (p->next_ && p->next_->ID_ <= ID)
+	{
+		p = p->next_;
+	}
+	Customer* q = new Customer(name, ID, roomNumber, day, p->next_);
+	p->next_ = q;
+	length_++;
+}
+void CustomerList::DeleteCustomer(int index)
+{
+	if (index < 0 || index >= length_)
+	{
+		throw std::string("范围错误。");
+	}
+	Customer* p = head_;
+	for (int j = 0; j < index; j++)
+	{
+		p = p->next_;
+	}
+	Customer* q = p->next_;
+	p->next_ = q->next_;
+	delete q;
+	length_--;
+}
+void CustomerList::SetCustomer(int index, const QString& name, const QString& ID, int roomNumber, int day)
+{
+	if (index < 0 || index >= length_)
+	{
+		throw std::string("范围错误。");
+	}
+	Customer* p = head_->next_;
+	for (int i = 0; i < index; i++)
+	{
+		p = p->next_;
+	}
+	p->name_ = name;
+	p->ID_ = ID;
+	p->roomNumber_ = roomNumber;
+	p->day_ = day;
+}
+int CustomerList::GetLength() const
+{
+	return length_;
 }
 void CustomerList::GetCustomer(int index, QString& name, QString& ID, int& roomNumber, int& day) const
 {
@@ -96,33 +139,6 @@ int CustomerList::GetCustomerDay(int index) const
 		p = p->next_;
 	}
 	return p->day_;
-}
-void CustomerList::InsertCustomer(const QString& name, const QString& ID, int roomNumber, int day)
-{
-	Customer* p = head_;
-	while (p->next_ && p->next_->ID_ <= ID)
-	{
-		p = p->next_;
-	}
-	Customer* q = new Customer(name, ID, roomNumber, day, p->next_);
-	p->next_ = q;
-	length_++;
-}
-void CustomerList::DeleteCustomer(int index)
-{
-	if (index < 0 || index >= length_)
-	{
-		throw std::string("范围错误。");
-	}
-	Customer* p = head_;
-	for (int j = 0; j < index; j++)
-	{
-		p = p->next_;
-	}
-	Customer* q = p->next_;
-	p->next_ = q->next_;
-	delete q;
-	length_--;
 }
 CustomerList& CustomerList::operator=(const CustomerList& list_)
 {

@@ -11,8 +11,8 @@ public:
 	InsertDialog(CustomerList& customerList_, RoomList& roomList_, QWidget* parent = NULL);
 	~InsertDialog();
 public slots:
-	void InsertRoom();
 	void InsertCustomer();
+	void InsertRoom();
 private:
 	Ui::InsertDialog *ui_;
 	InsertRoomDialog* insertRoomDialog_;

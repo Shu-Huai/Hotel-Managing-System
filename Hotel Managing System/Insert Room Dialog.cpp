@@ -39,7 +39,7 @@ void InsertRoomDialog::InsertRoom()
 	}
 	QString type = ui_->typeEdit->text();
 	int price = ui_->priceEdit->text().toInt();
-	list_.Insert(number, type, price, 0);
+	list_.InsertRoom(number, type, price, 0);
 	QFile roomFile("Room.txt");
 	roomFile.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append);
 	QTextStream out(&roomFile);

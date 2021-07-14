@@ -106,6 +106,9 @@
     <ClCompile Include="Insert Dialog.cpp" />
     <ClCompile Include="Insert Room Dialog.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Modify Customer Dialog.cpp" />
+    <ClCompile Include="Modify Dialog.cpp" />
+    <ClCompile Include="Modify Room Dialog.cpp" />
     <ClCompile Include="Room List.cpp" />
     <ClCompile Include="Room.cpp" />
     <QtUic Include="Check Out Dialog.ui" />
@@ -114,6 +117,9 @@
     <QtUic Include="Insert Customer Dialog.ui" />
     <QtUic Include="Insert Dialog.ui" />
     <QtUic Include="Insert Room Dialog.ui" />
+    <QtUic Include="Modify Customer Dialog.ui" />
+    <QtUic Include="Modify Dialog.ui" />
+    <QtUic Include="Modify Room Dialog.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Insert Dialog.h" />
@@ -130,6 +136,9 @@
     <ClInclude Include="Customer List.h" />
     <ClInclude Include="Customer.h" />
     <QtMoc Include="Delete Room Dialog.h" />
+    <QtMoc Include="Modify Dialog.h" />
+    <QtMoc Include="Modify Customer Dialog.h" />
+    <QtMoc Include="Modify Room Dialog.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Room List.h" />
     <ClInclude Include="Room.h" />

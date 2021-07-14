@@ -4,21 +4,13 @@ InsertDialog::InsertDialog(CustomerList& customerList, RoomList& roomList, QWidg
 {
 	ui_ = new Ui::InsertDialog;
 	ui_->setupUi(this);
-	connect(ui_->roomButton, SIGNAL(clicked()), this, SLOT(InsertRoom()));
 	connect(ui_->customerButton, SIGNAL(clicked()), this, SLOT(InsertCustomer()));
+	connect(ui_->roomButton, SIGNAL(clicked()), this, SLOT(InsertRoom()));
 	connect(ui_->returnButton, SIGNAL(clicked()), this, SLOT(close()));
 }
 InsertDialog::~InsertDialog()
 {
 	delete ui_;
-}
-void InsertDialog::InsertRoom()
-{
-	insertRoomDialog_ = new InsertRoomDialog(roomList_);
-	insertRoomDialog_->setWindowIcon(QIcon(":/HotelManagingSystem/Hotel Managing System Window Icon.ico"));
-	insertRoomDialog_->setWindowTitle("添加房间");
-	insertRoomDialog_->exec();
-	delete insertRoomDialog_;
 }
 void InsertDialog::InsertCustomer()
 {
@@ -27,4 +19,12 @@ void InsertDialog::InsertCustomer()
 	insertCustomerDialog_->setWindowTitle("添加客人");
 	insertCustomerDialog_->exec();
 	delete insertCustomerDialog_;
+}
+void InsertDialog::InsertRoom()
+{
+	insertRoomDialog_ = new InsertRoomDialog(roomList_);
+	insertRoomDialog_->setWindowIcon(QIcon(":/HotelManagingSystem/Hotel Managing System Window Icon.ico"));
+	insertRoomDialog_->setWindowTitle("添加房间");
+	insertRoomDialog_->exec();
+	delete insertRoomDialog_;
 }

@@ -1,5 +1,5 @@
 ﻿#include "Hotel Managing System.h"
-HotelManagingSystem::HotelManagingSystem(QWidget* parent) : QMainWindow(parent), insertDialog_(NULL), deleteRoomDialog_(NULL), checkOutDialog_(NULL)
+HotelManagingSystem::HotelManagingSystem(QWidget* parent) : QMainWindow(parent), insertDialog_(NULL), deleteRoomDialog_(NULL), checkOutDialog_(NULL), modifyDialog_(NULL)
 {
 	ui_ = new Ui::HotelManagementClass;
 	ui_->setupUi(this);
@@ -7,6 +7,7 @@ HotelManagingSystem::HotelManagingSystem(QWidget* parent) : QMainWindow(parent),
 	connect(ui_->exitButton, SIGNAL(clicked()), this, SLOT(close()));
 	connect(ui_->deleteRoomButton, SIGNAL(clicked()), this, SLOT(DeleteRoom()));
 	connect(ui_->checkOutButton, SIGNAL(clicked()), this, SLOT(CheckOut()));
+	connect(ui_->modifyButton, SIGNAL(clicked()), this, SLOT(Modify()));
 	QFile roomFile("Room.txt");
 	roomFile.open(QIODevice::ReadWrite | QIODevice::Text);
 	QTextStream roomIn(&roomFile);
@@ -17,7 +18,7 @@ HotelManagingSystem::HotelManagingSystem(QWidget* parent) : QMainWindow(parent),
 		int price = 0;
 		int state = 0;
 		roomIn >> number >> type >> price >> state;
-		roomList_.Insert(number, type, price, bool(state));
+		roomList_.InsertRoom(number, type, price, bool(state));
 	}
 	roomFile.close();
 	QFile customerFile("Customer.txt");
@@ -100,4 +101,12 @@ void HotelManagingSystem::CheckOut()
 	checkOutDialog_->setWindowTitle("退房");
 	checkOutDialog_->exec();
 	delete checkOutDialog_;
+}
+void HotelManagingSystem::Modify()
+{
+	modifyDialog_ = new ModifyDialog(customerList_, roomList_);
+	modifyDialog_->setWindowIcon(QIcon(":/HotelManagingSystem/Hotel Managing System Window Icon.ico"));
+	modifyDialog_->setWindowTitle("退房");
+	modifyDialog_->exec();
+	delete modifyDialog_;
 }

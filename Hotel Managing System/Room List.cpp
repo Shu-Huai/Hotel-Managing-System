@@ -38,7 +38,7 @@ bool RoomList::IsRoomExist(int number) const
 	}
 	return false;
 }
-void RoomList::Insert(const int& number, const QString& type, const int& price, const bool& isFull)
+void RoomList::InsertRoom(int number, const QString& type, int price, bool isFull)
 {
 	Room* p = head_;
 	while (p->next_ && p->next_->number_ <= number)
@@ -78,6 +78,22 @@ void RoomList::SetFull(int number)
 	}
 	p->isFull_ = true;
 }
+void RoomList::SetRoom(int index, int number, const QString& type, int price, bool isFull)
+{
+	if (index < 0 || index >= length_)
+	{
+		throw std::string("范围错误。");
+	}
+	Room* p = head_->next_;
+	for (int i = 0; i < index; i++)
+	{
+		p = p->next_;
+	}
+	p->number_ = number;
+	p->type_ = type;
+	p->price_ = price;
+	p->isFull_ = isFull;
+}
 void RoomList::CheckOut(int number)
 {
 	Room* p = head_->next_;
@@ -94,6 +110,21 @@ void RoomList::CheckOut(int number)
 int RoomList::GetLength() const
 {
 	return length_;
+}
+int RoomList::GetIndex(int number) const
+{
+	Room* p = head_->next_;
+	int index = 0;
+	while (p && p->number_ != number)
+	{
+		index++;
+		p = p->next_;
+	}
+	if (!p)
+	{
+		throw std::string("房间不存在。");
+	}
+	return index;
 }
 void RoomList::GetRoom(int index, int& number, QString& type, int& price, bool& isFull) const
 {
@@ -137,7 +168,7 @@ RoomList& RoomList::operator=(const RoomList& list_)
 			int price = 0;
 			bool isFull = 0;
 			list_.GetRoom(i, number, type, price, isFull);
-			Insert(number, type, price, isFull);
+			InsertRoom(number, type, price, isFull);
 		}
 	}
 	return *this;
