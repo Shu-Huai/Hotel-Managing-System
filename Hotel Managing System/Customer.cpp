@@ -1,4 +1,4 @@
 ﻿#include "Customer.h"
-Customer::Customer(QString name, QString ID, int roomNumber, Customer* next) : name_(name), ID_(ID), roomNumber_(roomNumber), next_(next)
+Customer::Customer(QString name, QString ID, int roomNumber, int day, Customer* next) : name_(name), ID_(ID), roomNumber_(roomNumber), day_(day), next_(next)
 {
 }

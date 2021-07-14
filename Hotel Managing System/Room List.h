@@ -14,6 +14,7 @@ public:
 	void CheckOut(int number);
 	int GetLength() const;
 	void GetRoom(int index, int& number, QString& type, int& price, bool& isFull) const;
+	int GetRoomPrice(int number) const;
 	RoomList& operator=(const RoomList& list_);
 private:
 	Room* head_;

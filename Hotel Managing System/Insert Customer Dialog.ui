@@ -137,6 +137,35 @@
            </layout>
           </widget>
          </item>
+         <item>
+          <widget class="QWidget" name="dayPanel" native="true">
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <item>
+             <widget class="QLabel" name="dayLabel">
+              <property name="font">
+               <font>
+                <family>宋体</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>入住天数：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="dayEdit">
+              <property name="font">
+               <font>
+                <family>宋体</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
         </layout>
        </widget>
       </item>

@@ -136,7 +136,6 @@
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Hotel_Managing_System.qrc" />
-    <QtRcc Include="Translator.qrc" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Customer.txt" />

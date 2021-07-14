@@ -28,8 +28,9 @@ HotelManagingSystem::HotelManagingSystem(QWidget* parent) : QMainWindow(parent),
 		QString name = "";
 		QString ID = "";
 		int roomNumber = 0;
-		customerIn >> name >> ID >> roomNumber;
-		customerList_.Insert(name, ID, roomNumber);
+		int day = 0;
+		customerIn >> name >> ID >> roomNumber >> day;
+		customerList_.InsertCustomer(name, ID, roomNumber, day);
 		roomList_.SetFull(roomNumber);
 	}
 	customerFile.close();
@@ -66,8 +67,9 @@ void HotelManagingSystem::Exit()
 		QString name = "";
 		QString ID = "";
 		int number = 0;
-		customerList_.GetCustomer(i, name, ID, number);
-		customerOut << name << " " << ID << " " << number;
+		int day = 0;
+		customerList_.GetCustomer(i, name, ID, number, day);
+		customerOut << name << " " << ID << " " << number << " " << day;
 		if (i != customerList_.GetLength() - 1)
 		{
 			customerOut << '\n';

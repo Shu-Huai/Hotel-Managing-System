@@ -5,7 +5,7 @@ int main(int argc, char* argv[])
 {
 	QApplication application(argc, argv);
 	QTranslator translator;
-	if (translator.load(":/qt_zh_CN.qm"))
+	if (translator.load(":/HotelManagingSystem/qt_zh_CN.qm"))
 	{
 		application.installTranslator(&translator);
 	}

@@ -42,20 +42,34 @@ bool CustomerList::IsCustomerExist(const QString& ID) const
 	}
 	return false;
 }
-void CustomerList::GetCustomer(int index, QString& name, QString& ID, int& roomNumber) const
+void CustomerList::GetCustomer(int index, QString& name, QString& ID, int& roomNumber, int& day) const
 {
 	if (index < 0 || index >= length_)
 	{
 		throw std::string("范围错误。");
 	}
 	Customer* p = head_->next_;
-	for (int j = 0; j < index; j++)
+	for (int i = 0; i < index; i++)
 	{
 		p = p->next_;
 	}
 	name = p->name_;
 	ID = p->ID_;
 	roomNumber = p->roomNumber_;
+	day = p->day_;
+}
+QString CustomerList::GetCustomerName(int index) const
+{
+	if (index < 0 || index >= length_)
+	{
+		throw std::string("范围错误。");
+	}
+	Customer* p = head_->next_;
+	for (int i = 0; i < index; i++)
+	{
+		p = p->next_;
+	}
+	return p->name_;
 }
 int CustomerList::GetCustomerRoomNumber(int index) const
 {
@@ -64,20 +78,33 @@ int CustomerList::GetCustomerRoomNumber(int index) const
 		throw std::string("范围错误。");
 	}
 	Customer* p = head_->next_;
-	for (int j = 0; j < index; j++)
+	for (int i = 0; i < index; i++)
 	{
 		p = p->next_;
 	}
 	return p->roomNumber_;
 }
-void CustomerList::Insert(const QString& name, const QString& ID, int roomNumber)
+int CustomerList::GetCustomerDay(int index) const
+{
+	if (index < 0 || index >= length_)
+	{
+		throw std::string("范围错误。");
+	}
+	Customer* p = head_->next_;
+	for (int i = 0; i < index; i++)
+	{
+		p = p->next_;
+	}
+	return p->day_;
+}
+void CustomerList::InsertCustomer(const QString& name, const QString& ID, int roomNumber, int day)
 {
 	Customer* p = head_;
 	while (p->next_ && p->next_->ID_ <= ID)
 	{
 		p = p->next_;
 	}
-	Customer* q = new Customer(name, ID, roomNumber, p->next_);
+	Customer* q = new Customer(name, ID, roomNumber, day, p->next_);
 	p->next_ = q;
 	length_++;
 }
@@ -108,8 +135,9 @@ CustomerList& CustomerList::operator=(const CustomerList& list_)
 			QString name = "";
 			QString ID = "";
 			int roomNumber = 0;
-			list_.GetCustomer(i, name, ID, roomNumber);
-			Insert(name, ID, roomNumber);
+			int day = 0;
+			list_.GetCustomer(i, name, ID, roomNumber, day);
+			InsertCustomer(name, ID, roomNumber, day);
 		}
 	}
 	return *this;

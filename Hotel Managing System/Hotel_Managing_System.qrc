@@ -1,8 +1,9 @@
-﻿<RCC>
+<RCC>
     <qresource prefix="/HotelManagingSystem">
         <file>Error Icon.ico</file>
         <file>Information Icon.ico</file>
         <file>Warning Icon.ico</file>
         <file>Hotel Managing System Window Icon.ico</file>
+        <file>qt_zh_CN.qm</file>
     </qresource>
 </RCC>

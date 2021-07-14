@@ -56,7 +56,7 @@ void RoomList::DeleteRoom(int index)
 		throw std::string("范围错误。");
 	}
 	Room* p = head_;
-	for (int j = 0; j < index; j++)
+	for (int i = 0; i < index; i++)
 	{
 		p = p->next_;
 	}
@@ -110,6 +110,19 @@ void RoomList::GetRoom(int index, int& number, QString& type, int& price, bool& 
 	type = p->type_;
 	price = p->price_;
 	isFull = p->isFull_;
+}
+int RoomList::GetRoomPrice(int number) const
+{
+	Room* p = head_->next_;
+	while (p && p->number_ != number)
+	{
+		p = p->next_;
+	}
+	if (!p)
+	{
+		throw std::string("房间不存在。");
+	}
+	return p->price_;
 }
 RoomList& RoomList::operator=(const RoomList& list_)
 {
