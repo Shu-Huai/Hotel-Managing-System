@@ -5,7 +5,7 @@ ModifyDialog::ModifyDialog(CustomerList& customerList, RoomList& roomList, QWidg
 	ui_ = new Ui::ModifyDialog;
 	ui_->setupUi(this);
 	connect(ui_->customerButton, SIGNAL(clicked()), this, SLOT(ModifyCustomer()));
-	connect(ui_->roomButton, SIGNAL(clicked()), this, SLOT(ModifytRoom()));
+	connect(ui_->roomButton, SIGNAL(clicked()), this, SLOT(ModifyRoom()));
 	connect(ui_->returnButton, SIGNAL(clicked()), this, SLOT(close()));
 }
 ModifyDialog::~ModifyDialog()
@@ -20,7 +20,7 @@ void ModifyDialog::ModifyCustomer()
 	modifyCustomerDialog_->exec();
 	delete modifyCustomerDialog_;
 }
-void ModifyDialog::ModifytRoom()
+void ModifyDialog::ModifyRoom()
 {
 	modifyRoomDialog_ = new ModifyRoomDialog(roomList_);
 	modifyRoomDialog_->setWindowIcon(QIcon(":/HotelManagingSystem/Hotel Managing System Window Icon.ico"));

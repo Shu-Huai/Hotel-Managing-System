@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>HotelManagementClass</class>
  <widget class="QMainWindow" name="HotelManagementClass">
@@ -142,7 +142,7 @@
           </font>
          </property>
          <property name="text">
-          <string>插入</string>
+          <string>添加</string>
          </property>
         </widget>
        </item>
@@ -194,7 +194,7 @@
           </font>
          </property>
          <property name="text">
-          <string>查找</string>
+          <string>查询</string>
          </property>
         </widget>
        </item>

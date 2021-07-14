@@ -91,6 +91,10 @@ void CustomerList::GetCustomer(int index, QString& name, QString& ID, int& roomN
 	{
 		throw std::string("范围错误。");
 	}
+	if (!head_)
+	{
+		return;
+	}
 	Customer* p = head_->next_;
 	for (int i = 0; i < index; i++)
 	{
@@ -113,6 +117,19 @@ QString CustomerList::GetCustomerName(int index) const
 		p = p->next_;
 	}
 	return p->name_;
+}
+QString CustomerList::GetCustomerID(int index) const
+{
+	if (index < 0 || index >= length_)
+	{
+		throw std::string("范围错误。");
+	}
+	Customer* p = head_->next_;
+	for (int i = 0; i < index; i++)
+	{
+		p = p->next_;
+	}
+	return p->ID_;
 }
 int CustomerList::GetCustomerRoomNumber(int index) const
 {
@@ -140,11 +157,61 @@ int CustomerList::GetCustomerDay(int index) const
 	}
 	return p->day_;
 }
-CustomerList& CustomerList::operator=(const CustomerList& list_)
+CustomerList& CustomerList::SearchCustomer(QString& name, QString& ID, int roomNumber, int day)
 {
-	if (&list_ != this)
+	CustomerList* list = new CustomerList;
+	Customer* p = head_->next_;
+	while (p)
 	{
-		int length = list_.GetLength();
+		QString tempName = "";
+		QString tempID = "";
+		QString tempRoom = "";
+		QString tempDay = "";
+		if (name == "")
+		{
+			tempName = p->name_;
+		}
+		else
+		{
+			tempName = name;
+		}
+		if (ID == "")
+		{
+			tempID = p->ID_;
+		}
+		else
+		{
+			tempID = ID;
+		}
+		if (roomNumber == -1)
+		{
+			tempRoom = QString("%1").arg(p->roomNumber_);
+		}
+		else
+		{
+			tempRoom = QString("%1").arg(roomNumber);
+		}
+		if (day == -1)
+		{
+			tempDay = QString("%1").arg(p->day_);
+		}
+		else
+		{
+			tempDay = QString("%1").arg(day);
+		}
+		if (p->name_.contains(tempName) && p->ID_.contains(tempID) && QString("%1").arg(p->roomNumber_).contains(tempRoom) && QString("%1").arg(p->day_).contains(tempDay))
+		{
+			list->InsertCustomer(p->name_, p->ID_, p->roomNumber_, p->day_);
+		}
+		p = p->next_;
+	}
+	return *list;
+}
+CustomerList& CustomerList::operator=(const CustomerList& list)
+{
+	if (&list != this)
+	{
+		int length = list.GetLength();
 		Clear();
 		for (int i = 0; i < length; i++)
 		{
@@ -152,7 +219,7 @@ CustomerList& CustomerList::operator=(const CustomerList& list_)
 			QString ID = "";
 			int roomNumber = 0;
 			int day = 0;
-			list_.GetCustomer(i, name, ID, roomNumber, day);
+			list.GetCustomer(i, name, ID, roomNumber, day);
 			InsertCustomer(name, ID, roomNumber, day);
 		}
 	}

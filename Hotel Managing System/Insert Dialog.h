@@ -1,8 +1,6 @@
 ﻿#pragma once
 #include "Insert Customer Dialog.h"
 #include "Insert Room Dialog.h"
-#include "Customer List.h"
-#include "Room List.h"
 #include "ui_Insert Dialog.h"
 class InsertDialog : public QDialog
 {

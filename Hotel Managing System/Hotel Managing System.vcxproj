@@ -111,6 +111,9 @@
     <ClCompile Include="Modify Room Dialog.cpp" />
     <ClCompile Include="Room List.cpp" />
     <ClCompile Include="Room.cpp" />
+    <ClCompile Include="Search Customer Dialog.cpp" />
+    <ClCompile Include="Search Dialog.cpp" />
+    <ClCompile Include="Search Room Dialog.cpp" />
     <QtUic Include="Check Out Dialog.ui" />
     <QtUic Include="Delete Room Dialog.ui" />
     <QtUic Include="Hotel Managing System.ui" />
@@ -120,6 +123,9 @@
     <QtUic Include="Modify Customer Dialog.ui" />
     <QtUic Include="Modify Dialog.ui" />
     <QtUic Include="Modify Room Dialog.ui" />
+    <QtUic Include="Search Customer Dialog.ui" />
+    <QtUic Include="Search Dialog.ui" />
+    <QtUic Include="Search Room Dialog.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Insert Dialog.h" />
@@ -131,6 +137,9 @@
     <QtMoc Include="Insert Room Dialog.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="Search Room Dialog.h" />
+    <QtMoc Include="Search Customer Dialog.h" />
+    <QtMoc Include="Search Dialog.h" />
     <QtMoc Include="Insert Customer Dialog.h" />
     <QtMoc Include="Check Out Dialog.h" />
     <ClInclude Include="Customer List.h" />

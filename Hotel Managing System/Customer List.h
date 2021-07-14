@@ -14,9 +14,11 @@ public:
 	int GetLength() const;
 	void GetCustomer(int index, QString& name, QString& ID, int& roomNumber, int& day) const;
 	QString GetCustomerName(int index) const;
+	QString GetCustomerID(int index) const;
 	int GetCustomerRoomNumber(int index) const;
 	int GetCustomerDay(int index) const;
-	CustomerList& operator=(const CustomerList& list_);
+	CustomerList& SearchCustomer(QString& name, QString& ID, int roomNumber, int day);
+	CustomerList& operator=(const CustomerList& list);
 private:
 	Customer* head_;
 	int length_;

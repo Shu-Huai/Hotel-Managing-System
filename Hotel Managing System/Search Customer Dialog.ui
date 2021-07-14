@@ -1,46 +1,34 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>InsertCustomerDialog</class>
- <widget class="QDialog" name="InsertCustomerDialog">
+ <class>SearchCustomerDialog</class>
+ <widget class="QDialog" name="SearchCustomerDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>469</width>
-    <height>264</height>
+    <width>600</width>
+    <height>338</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>469</width>
-    <height>264</height>
+    <width>600</width>
+    <height>338</height>
    </size>
   </property>
   <property name="windowTitle">
-   <string>InsertCustomerDialog</string>
+   <string>SearchCustomerDialog</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="1" column="1">
     <widget class="QWidget" name="centralWidget" native="true">
-     <property name="minimumSize">
-      <size>
-       <width>439</width>
-       <height>0</height>
-      </size>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
        <widget class="QWidget" name="inputPanel" native="true">
-        <property name="minimumSize">
-         <size>
-          <width>322</width>
-          <height>0</height>
-         </size>
-        </property>
         <layout class="QVBoxLayout" name="verticalLayout">
          <item>
           <widget class="QWidget" name="namePanel" native="true">
-           <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <layout class="QHBoxLayout" name="horizontalLayout">
             <item>
              <widget class="QLabel" name="nameLabel">
               <property name="font">
@@ -98,13 +86,7 @@
          </item>
          <item>
           <widget class="QWidget" name="roomPanel" native="true">
-           <property name="minimumSize">
-            <size>
-             <width>304</width>
-             <height>0</height>
-            </size>
-           </property>
-           <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
             <item>
              <widget class="QLabel" name="roomLabel">
               <property name="font">
@@ -119,13 +101,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="roomCombo">
-              <property name="minimumSize">
-               <size>
-                <width>200</width>
-                <height>0</height>
-               </size>
-              </property>
+             <widget class="QLineEdit" name="roomEdit">
               <property name="font">
                <font>
                 <family>宋体</family>
@@ -139,7 +115,7 @@
          </item>
          <item>
           <widget class="QWidget" name="dayPanel" native="true">
-           <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
             <item>
              <widget class="QLabel" name="dayLabel">
               <property name="font">
@@ -170,68 +146,13 @@
        </widget>
       </item>
       <item>
-       <widget class="QWidget" name="buttonPanel" native="true">
-        <layout class="QVBoxLayout" name="verticalLayout_2">
-         <item>
-          <widget class="QPushButton" name="confirmButton">
-           <property name="font">
-            <font>
-             <family>宋体</family>
-             <pointsize>12</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>确认</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="clearButton">
-           <property name="font">
-            <font>
-             <family>宋体</family>
-             <pointsize>12</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>清除</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="returButton">
-           <property name="font">
-            <font>
-             <family>宋体</family>
-             <pointsize>12</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>返回</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
+       <widget class="QListWidget" name="customerList"/>
       </item>
      </layout>
     </widget>
    </item>
-   <item row="2" column="1">
-    <spacer name="downSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
    <item row="1" column="0">
-    <spacer name="leftSpace">
+    <spacer name="leftSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
@@ -252,6 +173,19 @@
       <size>
        <width>40</width>
        <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="2" column="1">
+    <spacer name="downSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
       </size>
      </property>
     </spacer>

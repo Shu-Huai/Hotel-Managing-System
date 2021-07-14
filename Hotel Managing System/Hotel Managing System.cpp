@@ -1,5 +1,6 @@
 ﻿#include "Hotel Managing System.h"
-HotelManagingSystem::HotelManagingSystem(QWidget* parent) : QMainWindow(parent), insertDialog_(NULL), deleteRoomDialog_(NULL), checkOutDialog_(NULL), modifyDialog_(NULL)
+HotelManagingSystem::HotelManagingSystem(QWidget* parent)
+	: QMainWindow(parent), insertDialog_(NULL), deleteRoomDialog_(NULL), checkOutDialog_(NULL), modifyDialog_(NULL), searchDialog_(NULL)
 {
 	ui_ = new Ui::HotelManagementClass;
 	ui_->setupUi(this);
@@ -8,6 +9,7 @@ HotelManagingSystem::HotelManagingSystem(QWidget* parent) : QMainWindow(parent),
 	connect(ui_->deleteRoomButton, SIGNAL(clicked()), this, SLOT(DeleteRoom()));
 	connect(ui_->checkOutButton, SIGNAL(clicked()), this, SLOT(CheckOut()));
 	connect(ui_->modifyButton, SIGNAL(clicked()), this, SLOT(Modify()));
+	connect(ui_->searchButton, SIGNAL(clicked()), this, SLOT(Search()));
 	QFile roomFile("Room.txt");
 	roomFile.open(QIODevice::ReadWrite | QIODevice::Text);
 	QTextStream roomIn(&roomFile);
@@ -82,7 +84,7 @@ void HotelManagingSystem::Insert()
 {
 	insertDialog_ = new InsertDialog(customerList_, roomList_);
 	insertDialog_->setWindowIcon(QIcon(":/HotelManagingSystem/Hotel Managing System Window Icon.ico"));
-	insertDialog_->setWindowTitle("插入");
+	insertDialog_->setWindowTitle("添加");
 	insertDialog_->exec();
 	delete insertDialog_;
 }
@@ -106,7 +108,15 @@ void HotelManagingSystem::Modify()
 {
 	modifyDialog_ = new ModifyDialog(customerList_, roomList_);
 	modifyDialog_->setWindowIcon(QIcon(":/HotelManagingSystem/Hotel Managing System Window Icon.ico"));
-	modifyDialog_->setWindowTitle("退房");
+	modifyDialog_->setWindowTitle("修改");
 	modifyDialog_->exec();
 	delete modifyDialog_;
+}
+void HotelManagingSystem::Search()
+{
+	searchDialog_ = new SearchDialog(customerList_, roomList_);
+	searchDialog_->setWindowIcon(QIcon(":/HotelManagingSystem/Hotel Managing System Window Icon.ico"));
+	searchDialog_->setWindowTitle("查询");
+	searchDialog_->exec();
+	delete searchDialog_;
 }

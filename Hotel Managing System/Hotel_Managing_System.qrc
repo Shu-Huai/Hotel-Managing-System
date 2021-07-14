@@ -1,4 +1,4 @@
-<RCC>
+﻿<RCC>
     <qresource prefix="/HotelManagingSystem">
         <file>Error Icon.ico</file>
         <file>Information Icon.ico</file>
