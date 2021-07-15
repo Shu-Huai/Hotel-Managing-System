@@ -10,7 +10,7 @@ SearchRoomDialog::SearchRoomDialog(RoomList& list, QWidget* parent) : QDialog(pa
 	connect(ui_->isFullEdit, SIGNAL(textEdited(QString)), this, SLOT(SearchRoom(QString)));
 	connect(ui_->clearButton, SIGNAL(clicked()), this, SLOT(ClearEditor()));
 	connect(ui_->returnButton, SIGNAL(clicked()), this, SLOT(close()));
-		for (int i = 0; i < list_.GetLength(); i++)
+	for (int i = 0; i < list_.GetLength(); i++)
 	{
 		QString item = "";
 		item.append(QString("%1 ").arg(list_.GetRoomNumber(i), 4, 10, QLatin1Char(' ')));
@@ -30,7 +30,7 @@ void SearchRoomDialog::SearchRoom(QString text)
 	int number = ui_->numberEdit->text() == "" ? -1 : ui_->numberEdit->text().toInt();
 	QString type = ui_->typeEdit->text();
 	int price = ui_->priceEdit->text() == "" ? -1 : ui_->priceEdit->text().toInt();
-	int isFull = ui_->isFullEdit->text() == "" ? -1 : (ui_->isFullEdit->text() == "满" ? 1 : 0);
+	int isFull = ui_->isFullEdit->text() == "" ? -1 : ui_->isFullEdit->text() == "满" ? 1 : ui_->isFullEdit->text() == "空" ? 0 : 2;
 	RoomList& list = list_.SearchRoom(number, type, price, isFull);
 	for (int i = 0; i < list.GetLength(); i++)
 	{
